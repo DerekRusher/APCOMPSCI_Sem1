@@ -18,7 +18,11 @@ public class Lab_02
 		int Length = 6;
 		int Height = 7;
 		int Width = 8;
+		int LH = Length*Height*2;
+		int LW = Length*Width*2;
+		int HW = Height*Width*2;
+		int SA = LH + LW + HW;
 		
-		System.out.println(Length);
+		System.out.println("The surface area of your rectangle is " + SA);
 	}
 }
