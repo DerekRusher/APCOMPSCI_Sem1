@@ -7,6 +7,7 @@ public class RudeAI
 	Scanner imput = new Scanner(System.in);
 	
 	System.out.println("Hello, I'm RudeAI and I represent the AI Questionaire Foundation");
+
 	System.out.println("If you would please take some time out of your day to answer this questionaire, then please answer the next few questions");
 	System.out.println("If you don't want to take it, well I don't care at all, you are taking it anyway");
 	System.out.println("I will recieve much joy if you would answer these questions for me");
