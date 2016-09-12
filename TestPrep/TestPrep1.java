@@ -8,23 +8,23 @@ public class TestPrep1
 		//int num = 45;
 		//System.out.println("IronMan has " + num + " kinds of weapons in his suit.");
 		
-		//2)
+		//System.out.println("2)");
 		//String pres = "Abraham Lincoln";
 		//String quote = "Whatever you are, be a good one.";
 		//System.out.println(pres + " once said, \"" + quote + "\"");
 		
-		//3)
+		//System.out.println("3)");
 		//int h = 45;
 		//int w = 64;
 		//System.out.println("the area of your rectangle is..." + h*w);
 		
-		//4)
+		//System.out.println("4)");
 		//it would cause an error becuase "seven" is a string and int slices = kb.nextInt(); onl accepts numbers becuase it is an int.
 		
-		//5)
+		//System.out.println("5)");
 		//C. Is there a Mr. or Mrs. Buster?
 		
-		//6)
+		//System.out.println("6)");
 		//a. 
 		//How many siblings do you have? 
 		//>> 3
@@ -33,17 +33,17 @@ public class TestPrep1
 		//>>  Carl
 		//Awe! Carl is your favorite.
 		
-		//7)
+		//System.out.println("7)");
 		//The escape characters for " need to be added.
 		//The new code will look like: System.out.println("R. Kelly said \"I believe I can fly!\"");
  
-		//8)
+		//System.out.println("8)");
 		//System.out.println("This one goes on top" + "\n" + "This one goes on bottom");
 		
-		//9)
+		//System.out.println("9)");
 		//System.out.println("a\tb\tc\nd\te\tf\ng\th\ti");
 		
-		//10)
+		//System.out.println("10)");
 		double four = 4;
 		double three = 3;
 		double two = 2;
