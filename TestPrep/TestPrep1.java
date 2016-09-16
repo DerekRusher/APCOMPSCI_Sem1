@@ -187,3 +187,135 @@ public class TestPrep1
 	}
 }
 }
+
+
+
+//if (lol = true){
+	//	if(math > 89.999){
+		//	double maths = four;
+			//System.out.println(four);
+//			if(science > 89.999){
+	//			double sciences = four;
+		//		System.out.println(sciences);
+			//}
+//			else if(science > 79.999){
+	//			double sciences = three;
+		//		System.out.println(sciences);
+			//}
+//			else if(science > 69.999){
+	//			double sciences = two;
+		//		System.out.println(sciences);
+//		}
+	//	else if(science > 59.999){
+		//	double sciences = one;
+			//System.out.println(sciences);
+//		}
+	//	else {
+		//	double sciences = zero;
+			//System.out.println(sciences);
+//		}
+	//			
+		//}
+//		else if(math > 79.999){
+	//		double maths = three;
+		//	System.out.println(maths);
+//		}
+	//	else if(math > 69.999){
+		//	double maths = two;
+			//System.out.println(maths);
+//		}
+	//	else if(math > 59.999){
+		//	double maths = one;
+			//System.out.println(maths);
+//		}
+	//	else {
+		//	double maths = zero;
+			//System.out.println(maths);
+//		}	
+	//	
+		//if(science > 89.999){
+			//double sciences = four;
+//			System.out.println(sciences);
+	//	}
+		//else if(science > 79.999){
+			//double sciences = three;
+//			System.out.println(sciences);
+	//	}
+		//else if(science > 69.999){
+			//double sciences = two;
+//			System.out.println(sciences);
+	//	}
+		//else if(science > 59.999){
+			//double sciences = one;
+//			System.out.println(sciences);
+	//	}
+		//else {
+			//double sciences = zero;
+//			System.out.println(sciences);
+	//	}	
+		//
+			//
+//		if(history > 89.999){
+	//		double histories = four;
+		//	System.out.println(histories);
+//		}
+	//	else if(history > 79.999){
+		//	double histories = three;
+			//System.out.println(histories);
+//		}
+	//	else if(history > 69.999){
+		//	double histories = two;
+			//System.out.println(histories);
+//		}
+	//	else if(history > 59.999){
+		//	double histories = one;
+			//System.out.println(histories);
+//		}
+	//	else {
+		//	double histories = zero;
+			//System.out.println(histories);
+//		}	
+	//	
+		//
+//		if(english > 89.999){
+	//		double englishes = four;
+		//	System.out.println(englishes);
+//		}
+	//	else if(english > 79.999){
+		//	double englishes = three;
+			//System.out.println(englishes);
+//		}
+	//	else if(english > 69.999){
+		//	double englishes = two;
+			//System.out.println(englishes);
+//		}
+	//	else if(english > 59.999){
+		//	double englishes = one;
+			//System.out.println(englishes);
+//		}
+	//	else {
+		//	double englishes = zero;
+			//System.out.println(englishes);
+//		}	
+	//	
+		//
+//		if(compsci > 89.999){
+	//		double compscis = four;
+		//	System.out.println(compscis);	
+//		}
+	//	else if(compsci > 79.999){
+		//	double compscis = three;
+			//System.out.println(compscis);
+//		}
+	//	else if(compsci > 69.999){
+		//	double compscis = two;
+			//System.out.println(compscis);
+//		}
+	//	else if(compsci > 59.999){
+		//	double compscis = one;
+			//System.out.println(compscis);
+//		}
+	//	else {
+		//	double compscis = zero;
+			//System.out.println(compscis);
+//		}
