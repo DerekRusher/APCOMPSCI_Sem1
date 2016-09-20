@@ -5,11 +5,9 @@ public class Reciept
 	public static void main(String[]args)
 	{
 		Scanner imput = new Scanner(System.in);
-		
-		System.out.println("What was the first item you ordered?");
-		
 		Reciept formatting = new Reciept();
 		
+		System.out.println("What was the first item you ordered?");
 		String item1 = imput.nextLine();
 		System.out.println("How much was it?");
 		double price1 = imput.nextDouble();
