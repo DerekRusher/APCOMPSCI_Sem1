@@ -13,7 +13,7 @@ public class Lab_02
 		String City = "LOLAR";
 		String zip = "00612.";
 		
-		System.out.println(Name + " lives on " + address + " on " + City + ", " + zip);
+		System.out.println(Name + "\n" + address + "\n" + City + ", " + zip);
 		
 		int Length = 6;
 		int Height = 7;
