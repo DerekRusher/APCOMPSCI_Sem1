@@ -28,7 +28,7 @@ public class interest
 		double exponent = number*time;
 		double withoutPrinciple = Math.pow(inside, exponent);
 		double yearly = withoutPrinciple*principle;
-		double base = yearly/12;
+		double base = yearly/(time*12);
 		
 		return base;
 	}
