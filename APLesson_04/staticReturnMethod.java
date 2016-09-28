@@ -5,14 +5,15 @@ public class staticReturnMethod
 	public static void main(String[]args)
 	{
 		Scanner input = new Scanner(System.in);
-		System.out.println("Ayyyyy bruv give me a String");
-		String preOne = input.nextLine();
-		input.nextLine();
-		returnMethod(preOne);
+		String First = "Ayyyyy bruv give me a String";
+		String Second = input.nextLine();
+		returnMethod(First, Second);
+		//System.out.println("Ya String is " + )
 	}
 	
-	public static String returnMethod(String one)
+	public static String returnMethod(String one, String two)
 	{
-		return one;
+		System.out.println(one);
+		return two;
 	}
 }
