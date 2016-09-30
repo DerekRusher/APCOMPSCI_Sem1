@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class cube
+public class cube_043
 {
 	static double side;
 	static double sa;
@@ -14,9 +14,9 @@ public class cube
 		print(side, sa);
 	}
 	
-	public static void calcSurf(double one)
+	public static double calcSurf(double one)
 	{
-		sa = one*one*6;
+		return sa = one*one*6;
 	}
 	
 	public static void print(double first, double second)
