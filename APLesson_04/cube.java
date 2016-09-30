@@ -8,7 +8,7 @@ public class cube
 	public static void main(String[]args)
 	{
 		Scanner in = new Scanner(System.in);
-		System.out.println("What is the length of the side of the cube you wish to determine the Surface Area of?");
+		System.out.println("What's the length of the side of the cube you wish to determine the Surface Area of?");
 		side = in.nextDouble();
 		calcSurf(side);
 		print(side, sa);
