@@ -9,9 +9,9 @@ public class returnMethodAttemptTwo_043
 			
 		Scanner input = new Scanner(System.in);
 		
-		System.out.println("Ay bruv, give me a facta");
+		System.out.println("Oi bruv, throw me a facta");
 		double first = input.nextDouble();
-		System.out.println("Yo matey, throw me somethin' tah multiply it by");
+		System.out.println("Ay matey, 'it me wif sometin' tah multiplya by");
 		double second = input.nextDouble();
 		newMethod(first, second);
 		System.out.println("Ya sum is " + s);
