@@ -10,11 +10,13 @@ System.out.printf("%11S .......... $%.2f", item, price);
 
 A.
 
-/*Question_04*/ (right, answer was [System.out.printf("The surface area of your cube is %.5f inches. ", calcSurf(side));])
+/*Question_04*/ (right, answer was [System.out.printf("The surface area of your cube is %.5f inches. ",<--
+--> calcSurf(side));])
 
 System.out.printf("The surface area of your cube is %.5f", side*side*side);
 
-/*Question_05*/ (right, I contest. answer was [System.out.printf("The sum of " + num1 + " and " +  num2 + " is %.2f".format(calcSum(one, two));])
+/*Question_05*/ (right, I contest. answer was [System.out.printf("The sum of " + num1 + " and " +  num2<--
+--> + " is %.2f".format(calcSum(one, two));])
 
 double sum = one + two;
 System.out.printf("The sum of  t%f and %f is %.2f", one, two, sum);
