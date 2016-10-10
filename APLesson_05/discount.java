@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class discount
 {
 	static double d;
+	static double dPrint;
 	
 	public static void main(String[]args)
 	{
@@ -28,6 +29,7 @@ public class discount
 		double pFourth = in.nextDouble();
 		String sTitle = "Subtotal";
 		double sTotal = pFirst + pSecond + pThird + pFourth;
+		System.out.println(sTotal);
 		String dTitle = "Discount";
 		discount(sTotal);
 		double tax = d*.08;
@@ -38,17 +40,19 @@ public class discount
 		format(third, pThird);
 		format(fourth, pFourth);
 		format(sTitle, sTotal);
-		format(dTitle, d);
+		format(dTitle, dPrint);
 		System.out.println("__________________________________");
-		System.out.println("  Thank you for your business!!!  ");	
+		System.out.println("  Thank you for your business!!!  ");
 	}
 	
 	public static void discount(double a)
 	{
 		if(a >= 2000)
 			d = a*.85;
+			dPrint = a*.15;
 		if(a < 2000)
 			d = a;
+			dPrint = 0;
 	}
 	
 	public static void format(String one, double two)
