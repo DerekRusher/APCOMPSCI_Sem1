@@ -9,33 +9,38 @@ public class discount
 		Scanner in = new Scanner(System.in);		
 		System.out.println("What was the first item you purchased?");
 		String first = in.nextLine();
-		in.nextLine();
 		System.out.println("What was the price of the first item you purchased?");
 		double pFirst = in.nextDouble();
+		in.nextLine();
 		System.out.println("What was the second item you purchased?");
 		String second = in.nextLine();
-		in.nextLine();
 		System.out.println("What was the price of the second item you purchased?");
 		double pSecond = in.nextDouble();
+		in.nextLine();
 		System.out.println("What was the third item you purchased?");
 		String third = in.nextLine();
-		in.nextLine();
 		System.out.println("What was the price of the third item you purchased?");
 		double pThird = in.nextDouble();
+		in.nextLine();
 		System.out.println("What was the fourth item you purchased?");
 		String fourth = in.nextLine();
-		in.nextLine();
 		System.out.println("What was the price of the fourth item you purchased?");
 		double pFourth = in.nextDouble();
+		String sTitle = "Subtotal";
 		double sTotal = pFirst + pSecond + pThird + pFourth;
+		String dTitle = "Discount";
 		discount(sTotal);
 		double tax = d*.08;
 		double total = sTotal - d + tax;
 		System.out.println("<<<<<<<<<<< Receipt >>>>>>>>>>>>>>");
-		format(first, pfirst);
+		format(first, pFirst);
 		format(second, pSecond);
-		format(third, pthird);
+		format(third, pThird);
 		format(fourth, pFourth);
+		format(sTitle, sTotal);
+		format(dTitle, d);
+		System.out.println("__________________________________");
+		System.out.println("  Thank you for your business!!!  ");	
 	}
 	
 	public static void discount(double a)
@@ -48,6 +53,6 @@ public class discount
 	
 	public static void format(String one, double two)
 	{
-		System.out.println(%11S + " ....... " %11.2f, one, two);
+		System.out.printf("%17S ....... %5.2f\n", one, two);
 	}
 }
