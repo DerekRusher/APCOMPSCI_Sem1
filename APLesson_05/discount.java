@@ -32,7 +32,7 @@ public class discount
 		System.out.println(sTotal);
 		String dTitle = "Discount";
 		discount(sTotal);
-		double tax = d*.08;
+		double tax = sTotal*.08;
 		double total = sTotal - d + tax;
 		System.out.println("<<<<<<<<<<< Receipt >>>>>>>>>>>>>>");
 		format(first, pFirst);
@@ -48,15 +48,19 @@ public class discount
 	public static void discount(double a)
 	{
 		if(a >= 2000)
+		{
 			d = a*.85;
 			dPrint = a*.15;
+		}
 		if(a < 2000)
+		{
 			d = a;
 			dPrint = 0;
+		}
 	}
 	
 	public static void format(String one, double two)
 	{
-		System.out.printf("%17S ....... %5.2f\n", one, two);
+		System.out.printf("%17S ....... %7.2f\n", one, two);
 	}
 }
