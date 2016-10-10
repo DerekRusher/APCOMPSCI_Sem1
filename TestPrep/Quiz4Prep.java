@@ -23,10 +23,10 @@ System.out.printf("The sum of  t%f and %f is %.2f", one, two, sum);
 
 D.
 
-/*Question_07*/ ()
+/*Question_07*/ (no answer)
 
 A.
 
-/*Question_08*/ ()
+/*Question_08*/ (no answer)
 
 A.
