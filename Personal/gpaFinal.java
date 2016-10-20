@@ -29,6 +29,9 @@ public class gpaFinal
 		System.out.println("Your unwieghted GPA is " + gpa);
 		double trueGPA = (pGPA + 5)/7;
 		System.out.println("Your wieghted GPA is " + trueGPA);
+		double ninerGpa = nineGPA()
+		double tenerGPA = tenGPA()
+		double 
 	}
 	
 	public static double calcPoints(double a)
@@ -56,7 +59,6 @@ public class gpaFinal
 	
 	public static double tenGPA()
 	{
-		return 4 + 4 + 4 + 4 + 4 + 3
-		//4 + 4 +4 + 4 +3 +3
+		return 4 + 4 + 4 + 4 + 3.5 + 3;
 	}
 }
