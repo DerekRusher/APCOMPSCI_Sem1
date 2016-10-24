@@ -66,7 +66,8 @@ public class gpaFinal
 			double ngwv2 = (ninerGPAVersion2+w+1)/19;
 				//System.out.println("Your wieghted GPA for 9th-11th grade (semesters not averaged) is " + ngwv2);
 				System.out.printf("Your wieghted GPA for 9th-11th grade (semesters not averaged) is %.1f or %f\n", ngwv2, ngwv2);
-		
+		double sevenerGPA = sevenGPA();
+		double sevenerGPAVersion2 = sevenGPAVersion2();
 	}
 	
 	public static double calcPoints(double a)
@@ -85,6 +86,16 @@ public class gpaFinal
 			one = 0.0;
 		
 		return one;
+	}
+	
+	public static double sevenGPA()
+	{
+		return 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3.5 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+	}
+	
+	public static double sevenGPAVersion2()
+	{
+		return 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
 	}
 	
 	public static double nineGPA()
@@ -106,4 +117,6 @@ public class gpaFinal
 	{
 		return 4 + 4 + 4 + 4 + 3 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
 	}
+	
+	
 }
