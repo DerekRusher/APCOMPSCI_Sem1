@@ -2,36 +2,61 @@ import java.util.Scanner;
 
 public class gpaFinal
 {
+	static double ph;
+	static double es;
+	static double sp;
+	static double cs;
+	static double im;
+	static double el;
+	static double us;
 	public static void main(String[]args)
 	{
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("What is your current grade in AP Physics 1?");
-		double ph = in.nextDouble();
+		ph = in.nextDouble();
 		System.out.println("What is your current grade in ESD?");
-		double es = in.nextDouble();
+		es = in.nextDouble();
 		System.out.println("What is your current grade in Spanish 2?");
-		double sp = in.nextDouble();
+		sp = in.nextDouble();
 		System.out.println("What is your current grade in AP Comp Sci?");
-		double cs = in.nextDouble();
+		cs = in.nextDouble();
 		System.out.println("What is your current grade in IM3H?");
-		double im = in.nextDouble();
+		im = in.nextDouble();
 		System.out.println("What is your current grade in AP Eng Lang?");
-		double el = in.nextDouble();
+		el = in.nextDouble();
 		System.out.println("What is your current grade in APUSH?");
-		double us = in.nextDouble();
+		us = in.nextDouble();
 		/*System.one.println("How many classes are weighted?");*/
-		double w = /*in.nextDouble()*/7;
+		double w = /*in.nextDouble()*/5;
 		//remove seven if you Scan for w
 		double pGPA = calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
 		//System.out.println(pGPA);
-		double gpa = pGPA/w;
-		System.out.println("Your unwieghted GPA is " + gpa);
-		double trueGPA = (pGPA + 5)/7;
-		System.out.println("Your wieghted GPA is " + trueGPA);
-		double ninerGpa = nineGPA()
-		double tenerGPA = tenGPA()
-		double 
+		double gpa = pGPA/7;
+				System.out.println("Your unwieghted GPA for this year is " + gpa);
+		double trueGPA = (pGPA + w)/7;
+				System.out.println("Your wieghted GPA is for this year is " + trueGPA);
+		double tenerGPA = tenGPA();
+			double tguw = tenerGPA/13;
+				System.out.println("Your unwieghted GPA for 10th-11th grade (semesters averaged) is " + tguw);
+			double tgw = (tenerGPA+w+1)/13;
+				System.out.println("Your wieghted GPA for 10th-11th grade (semesters averaged) is " + tgw);
+		double tenerGPAVersion2 = tenGPAVersion2();
+			double tguwv2 = tenerGPAVersion2/13;
+				System.out.println("Your unwieghted GPA for 10th-11th grade (semesters not averaged) is " + tguwv2);
+			double tgwv2 = (tenerGPAVersion2+w+1)/13;
+				System.out.println("Your wieghted GPA for 10th-11th grade (semesters not averaged) is " + tgwv2);
+		double ninerGPA = nineGPA();
+			double nguw = ninerGPA/19;
+				System.out.println("Your unwieghted GPA for 9th-11th grade (semesters averaged) is " + nguw);
+			double ngw = (ninerGPA+w+1)/19;
+				System.out.println("Your wieghted GPA for 9th-11th grade (semesters averaged) is " + ngw);
+		double ninerGPAVersion2 = nineGPAVersion2();
+			double nguwv2 = ninerGPAVersion2/19;
+				System.out.println("Your unwieghted GPA for 9th-11th grade (semesters not averaged) is " + nguwv2);
+			double ngwv2 = (ninerGPAVersion2+w+1)/19;
+				System.out.println("Your wieghted GPA for 9th-11th grade (semesters not averaged) is " + ngwv2);
+		
 	}
 	
 	public static double calcPoints(double a)
@@ -54,11 +79,21 @@ public class gpaFinal
 	
 	public static double nineGPA()
 	{
-		return 4 + 4 + 4 + 4 + 4 + 4;
+		return 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3.5 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+	}
+	
+	public static double nineGPAVersion2()
+	{
+		return 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
 	}
 	
 	public static double tenGPA()
 	{
-		return 4 + 4 + 4 + 4 + 3.5 + 3;
+		return 4 + 4 + 4 + 4 + 3.5 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+	}
+	
+	public static double tenGPAVersion2()
+	{
+		return 4 + 4 + 4 + 4 + 3 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
 	}
 }
