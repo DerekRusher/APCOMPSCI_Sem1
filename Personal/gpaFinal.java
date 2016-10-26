@@ -27,47 +27,42 @@ public class gpaFinal
 		el = in.nextDouble();
 		System.out.println("What is your current grade in APUSH?");
 		us = in.nextDouble();
-		/*System.one.println("How many classes are weighted?");*/
-		double w = /*in.nextDouble()*/5;
-		//remove seven if you Scan for w
+		double w = 5;
 		double pGPA = calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
-		//System.out.println(pGPA);
 		double gpa = pGPA/7;
-				//System.out.println("Your unwieghted GPA for this year is " + gpa);
 				System.out.printf("Your unwieghted GPA for this year is %.1f or %f\n", gpa, gpa);
 		double trueGPA = (pGPA + w)/7;
-				//System.out.println("Your wieghted GPA is for this year is " + trueGPA);
 				System.out.printf("Your wieghted GPA is for this year is %.1f or %f\n", trueGPA, trueGPA);
 		double tenerGPA = tenGPA();
 			double tguw = tenerGPA/13;
-				//System.out.println("Your unwieghted GPA for 10th-11th grade (semesters averaged) is " + tguw);
 				System.out.printf("Your unwieghted GPA for 10th-11th grade (semesters averaged) is %.1f or %f\n", tguw, tguw);
 			double tgw = (tenerGPA+w+1)/13;
-				//System.out.println("Your wieghted GPA for 10th-11th grade (semesters averaged) is " + tgw);
 				System.out.printf("Your wieghted GPA for 10th-11th grade (semesters averaged) is %.1f or %f\n", tgw, tgw);
 		double tenerGPAVersion2 = tenGPAVersion2();
 			double tguwv2 = tenerGPAVersion2/13;
-				//System.out.println("Your unwieghted GPA for 10th-11th grade (semesters not averaged) is " + tguwv2);
 				System.out.printf("Your unwieghted GPA for 10th-11th grade (semesters not averaged) is %.1f or %f\n", tguwv2, tguwv2);
 			double tgwv2 = (tenerGPAVersion2+w+1)/13;
-				//System.out.println("Your wieghted GPA for 10th-11th grade (semesters not averaged) is " + tgwv2);
 				System.out.printf("Your wieghted GPA for 10th-11th grade (semesters not averaged) is %.1f or %f\n", tgwv2, tgwv2);
 		double ninerGPA = nineGPA();
 			double nguw = ninerGPA/19;
-				//System.out.println("Your unwieghted GPA for 9th-11th grade (semesters averaged) is " + nguw);
 				System.out.printf("Your unwieghted GPA for 9th-11th grade (semesters averaged) is %.1f or %f\n", nguw, nguw);
 			double ngw = (ninerGPA+w+1)/19;
-				//System.out.println("Your wieghted GPA for 9th-11th grade (semesters averaged) is " + ngw);
 				System.out.printf("Your wieghted GPA for 9th-11th grade (semesters averaged) is %.1f or %f\n", ngw, ngw);
 		double ninerGPAVersion2 = nineGPAVersion2();
 			double nguwv2 = ninerGPAVersion2/19;
-				//System.out.println("Your unwieghted GPA for 9th-11th grade (semesters not averaged) is " + nguwv2);
 				System.out.printf("Your unwieghted GPA for 9th-11th grade (semesters not averaged) is %.1f or %f\n", nguwv2, nguwv2);
 			double ngwv2 = (ninerGPAVersion2+w+1)/19;
-				//System.out.println("Your wieghted GPA for 9th-11th grade (semesters not averaged) is " + ngwv2);
 				System.out.printf("Your wieghted GPA for 9th-11th grade (semesters not averaged) is %.1f or %f\n", ngwv2, ngwv2);
 		double sevenerGPA = sevenGPA();
+			double sguw = sevenerGPA/22;
+				System.out.printf("Your unwieghted GPA for 7th-11th grade (semesters averaged) is %.1f or %f\n", sguw, sguw);
+			double sgw = (sevenerGPA+w+1)/22;
+				System.out.printf("Your wieghted GPA for 7th-11th grade (semesters averaged) is %.1f or %f\n", sgw, sgw);
 		double sevenerGPAVersion2 = sevenGPAVersion2();
+			double sguwv2 = sevenerGPAVersion2/22;
+				System.out.printf("Your unwieghted GPA for 7th-11th grade (semesters not averaged) is %.1f or %f\n", sguwv2, sguwv2);
+			double sgwv2 = (sevenerGPA+w+1)/22;
+				System.out.printf("Your wieghted GPA for 7th-11th grade (semesters averaged) is %.1f or %f\n", sgwv2, sgwv2);
 	}
 	
 	public static double calcPoints(double a)
