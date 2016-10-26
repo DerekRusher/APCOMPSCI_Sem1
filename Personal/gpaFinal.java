@@ -164,7 +164,7 @@ public class gpaFinal
 	public static void print(String first, boolean second)
 	{
 		Scanner in = new Scanner(System.in);
-		System.out.println(first + "\"a\" for yes and \"b\" for no");
+		System.out.println(first + " \"a\" for yes and \"b\" for no.");
 		String a = in.next();
 		if(a.equals(a))
 		{
