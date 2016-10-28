@@ -45,7 +45,7 @@ public class gpaFinal
 		print("Do you want to see semesters averaged(v1)?", b7);
 		print("Do you want to see semesters unaveraged(v2)?", b8);
 		double w = 5;
-		double pGPA = calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+		double pGPA = calcTotal();
 		if(b1 == true)
 		{
 			if(b5 == true)
@@ -162,34 +162,44 @@ public class gpaFinal
 		return one;
 	}
 	
+	public static double calcTotal()
+	{
+		return calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+	}
+	
+	public static double math(double ah)
+	{
+		return ah;
+	}
+	
 	public static double sevenGPA()
 	{
-		return 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3.5 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+		return math(4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3.5 + 3) + calcTotal();
 	}
 	
 	public static double sevenGPAVersion2()
 	{
-		return 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+		return math(4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3 + 3) + calcTotal();
 	}
 	
 	public static double nineGPA()
 	{
-		return 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3.5 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+		return math(4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3.5 + 3) + calcTotal();
 	}
 	
 	public static double nineGPAVersion2()
 	{
-		return 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+		return math(4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 3 + 3) + calcTotal();
 	}
 	
 	public static double tenGPA()
 	{
-		return 4 + 4 + 4 + 4 + 3.5 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+		return math(4 + 4 + 4 + 4 + 3.5 + 3) + calcTotal();
 	}
 	
 	public static double tenGPAVersion2()
 	{
-		return 4 + 4 + 4 + 4 + 3 + 3 + calcPoints(ph) + calcPoints(es) + calcPoints(sp) + calcPoints(cs) + calcPoints(im) + calcPoints(el) + calcPoints(us);
+		return math(4 + 4 + 4 + 4 + 3 + 3) + calcTotal();
 	}
 	
 	public static void print(String first, boolean second)
