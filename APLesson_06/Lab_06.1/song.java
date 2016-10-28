@@ -15,7 +15,7 @@ public class song
 			System.out.print(a);
 			if(i == b)
 			{
-				System.out.println("\n");
+				System.out.print("\n");
 			}
 		}
 	}

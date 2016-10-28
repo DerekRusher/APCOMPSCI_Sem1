@@ -20,18 +20,16 @@ public class CAC
 		System.out.println("What is your subject of work?");
 		String word6 = imput.nextLine();
 		System.out.println("***********************************");
-		formatting.format2(word4, word5);
+		formatting.format(word4, word5);
+		System.out.print("\n");
 		formatting.format(word1, word2);
+		System.out.print("\n");
 		formatting.format(word3, word6);
 		System.out.println("\n***********************************");
 		
 	}
 	
 	public void format(String word, String worddos)
-	{
-		System.out.printf("\n*%14s%18s *", word, worddos);
-	}
-	public void format2(String word, String worddos)
 	{
 		System.out.printf("*%14s%18s *", word, worddos);
 	}
