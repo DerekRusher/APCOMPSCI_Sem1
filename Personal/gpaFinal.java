@@ -134,11 +134,7 @@ public class gpaFinal
 				System.out.printf("Your wieghted GPA for 7th-11th grade (semesters averaged) is %.1f or %f\n", sgwv2, sgwv2);
 			}
 		}
-		if(b5 == false && b6 == false && b7 == false && b8 == false)
-		{
-			System.out.println("You have selected to print nothing");
-		}
-		if(b1 == false && b2 == false && b3 == false && b4 == false)
+		if((b5 == false && b6 == false && b7 == false && b8 == false) || (b1 == false && b2 == false && b3 == false && b4 == false))
 		{
 			System.out.println("You have selected to print nothing");
 		}
@@ -205,7 +201,7 @@ public class gpaFinal
 	public static void print(String first, boolean second)
 	{
 		Scanner in = new Scanner(System.in);
-		System.out.println(first + " \"a\" for yes and \"b\" for no.");
+		System.out.println(first + " \"a\" for yes and anything else for no.");
 		String a = in.next();
 		if(a.equals("a"))
 		{
