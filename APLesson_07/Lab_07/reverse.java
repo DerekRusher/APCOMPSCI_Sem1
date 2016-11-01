@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class reverse
 {
 	static int rev = 0;
-	static int num = 0;
+	static int num;
 	static int val;
 	
 	public static void main(String[]args)
@@ -12,16 +12,16 @@ public class reverse
 		num = in.nextInt();	
 		val = num;
 		getReverse();
-		System.out.println(val + " reversed is " + rev);
+		System.out.println(num + " reversed is " + rev);
 	}
 	
 	public static void getReverse()
 	{
-		while(num > 0)
+		while(val > 0)
 		{
-			rev = rev*10;
-			rev = rev + (num % 10);
-			rev = rev/10;
+			rev *= 10;
+			rev += (val % 10);
+			val = val/10;
 		}
 	}
 }
