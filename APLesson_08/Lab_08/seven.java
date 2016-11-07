@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class seven
 {
+	static int num;
+	
 	public static void main(String[]args)
 	{
 		Scanner in = new Scanner(System.in);
@@ -16,18 +18,17 @@ public class seven
 		{
 			if((z+3) % 10 == 0)
 			{
+				num++;
 				luck(z/10);
-				System.out.println("hi");
-				return 1;
+				return num;
 			}
 			else
 			{
 				luck(z/10);
-				System.out.println("sup");
-				return 0;
+				return num;
 			}
 		}
 		else
-			return 0;
+			return num;
 	}
 }
