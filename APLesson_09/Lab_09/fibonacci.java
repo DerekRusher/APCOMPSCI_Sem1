@@ -12,7 +12,7 @@ public class fibonacci{
 				seq[i] = num;
 			else
 				seq[i] = seq[i-1] + seq[i-2];
-			System.out.println(seq[i]);			
+			System.out.print(seq[i] + " ");			
 		}
 	}
 }
