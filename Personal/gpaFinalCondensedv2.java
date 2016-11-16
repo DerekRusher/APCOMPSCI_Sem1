@@ -56,43 +56,13 @@ public class gpaFinalCondensedv2
 			if(b6 == true)
 				System.out.printf("Your wieghted GPA for this year is %.1f or %f\n", ((pGPA + 5)/7), ((pGPA + 5)/7));
 		}
-		if(b2 == true)
-		{
-			if(b5 == true && b7 == true)
-				System.out.printf("Your unwieghted GPA for 10th-11th grade (semesters averaged) is %.1f or %f\n", (tenerGPA/13), (tenerGPA/13));
-			if(b6 == true && b7 == true)
-				System.out.printf("Your wieghted GPA for 10th-11th grade (semesters averaged) is %.1f or %f\n", ((tenerGPA+6)/13), ((tenerGPA+6)/13));
-			if(b5 == true && b8 == true)
-				System.out.printf("Your unwieghted GPA for 10th-11th grade (semesters not averaged) is %.1f or %f\n", (tenerGPAVersion2/13), (tenerGPAVersion2/13));
-			if(b6 == true && b8 == true)
-				System.out.printf("Your wieghted GPA for 10th-11th grade (semesters not averaged) is %.1f or %f\n", ((tenerGPAVersion2+6)/13), ((tenerGPAVersion2+6)/13));
-		}
-		if(b3 == true)
-		{
-			if(b5 == true && b7 == true)
-				System.out.printf("Your unwieghted GPA for 9th-11th grade (semesters averaged) is %.1f or %f\n", (ninerGPA/19), (ninerGPA/19));
-			if(b6 == true && b7 == true)
-				System.out.printf("Your wieghted GPA for 9th-11th grade (semesters averaged) is %.1f or %f\n", ((ninerGPA+6)/19), ((ninerGPA+6)/19));
-			if(b5 == true && b8 == true)
-				System.out.printf("Your unwieghted GPA for 9th-11th grade (semesters not averaged) is %.1f or %f\n", (ninerGPAVersion2/19), (ninerGPAVersion2/19));
-			if(b6 == true && b8 == true)
-				System.out.printf("Your wieghted GPA for 9th-11th grade (semesters not averaged) is %.1f or %f\n", ((ninerGPAVersion2+6)/19), ((ninerGPAVersion2+6)/19));
-		}
-		if(b4 == true)
-		{
-			if(b5 == true && b7 == true)
-				System.out.printf("Your unwieghted GPA for 7th-11th grade (semesters averaged) is %.1f or %f\n", (sevenerGPA/22), (sevenerGPA/22));
-			if(b6 == true && b7 == true)
-				System.out.printf("Your wieghted GPA for 7th-11th grade (semesters averaged) is %.1f or %f\n", ((sevenerGPA+6)/22), ((sevenerGPA+6)/22));
-			if(b5 == true && b8 == true)
-				System.out.printf("Your unwieghted GPA for 7th-11th grade (semesters not averaged) is %.1f or %f\n", (sevenerGPAVersion2/22), (sevenerGPAVersion2/22));
-			if(b6 == true && b8 == true)
-				System.out.printf("Your wieghted GPA for 7th-11th grade (semesters averaged) is %.1f or %f\n", ((sevenerGPA+6)/22), ((sevenerGPA+6)/22));
-		}
+		con(b2, "10", (tenerGPA/13), ((tenerGPA+6)/13), (tenerGPAVersion2/13), ((tenerGPAVersion2+6)/13));
+		con(b3, "9", (ninerGPA/19), ((ninerGPA+6)/19), (ninerGPAVersion2/19), ((ninerGPAVersion2+6)/19));
+		con(b4, "7", (tenerGPA/22), ((tenerGPA+6)/22), (tenerGPAVersion2/22), ((tenerGPAVersion2+6)/22));
 		if((b5 == false && b6 == false && b7 == false && b8 == false) || (b1 == false && b2 == false && b3 == false && b4 == false))
 			System.out.println("You have selected to print nothing");
 	}
-	/*public static String con(boolean ah, String a, double z, double y, double x, double w)
+	public static void con(boolean ah, String a, double z, double y, double x, double w)
 	{
 		if(ah == true)
 		{
@@ -105,7 +75,7 @@ public class gpaFinalCondensedv2
 			if(b6 == true && b8 == true)
 				System.out.printf("Your wieghted GPA for " + a + "th-11th grade (semesters not averaged) is %.1f or %f\n", w, w);
 		}
-	}*/
+	}
 	public static double calcPoints(double m)
 	{
 		double one = 0.0;
