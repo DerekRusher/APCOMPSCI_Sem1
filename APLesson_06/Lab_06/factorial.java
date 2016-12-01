@@ -5,10 +5,12 @@ public class factorial
 	{
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please insert a number: ");
-		int f = in.nextInt();
-		for(int i = 1; i <= f; i++)
+		int number = in.nextInt();
+		int factorial = 1;
+		for(int i = 1; i <= number; i++)
 		{
-			System.out.println(i*f);
+			factorial *= i;
 		}
+		System.out.println(factorial);
 	}
 }
