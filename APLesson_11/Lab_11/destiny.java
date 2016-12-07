@@ -19,5 +19,16 @@ public class destiny
 		System.out.println("Please enter a number: ");
 		
 		int divide = kb.nextInt();
+		int count = 0;
+		for(int i = 0; i < nums.length; i++)
+		{
+			for(int j = 0; j < nums[i].length; j++)
+			{
+				if(nums[i][j] % divide == 0)
+					count++;
+			}
+		}
+		
+		System.out.println("There are " + count + " numbers divisible by " + divide + " in the Array");
 	}
 }
