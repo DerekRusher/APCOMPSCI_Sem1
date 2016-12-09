@@ -1,6 +1,7 @@
-//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS 
-//---------------------------------------------7---------------------------------------------//
-
+//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//
+//---------------------------------------------7-----------------------------------------------//
+//---------------------------------------------8-----------------------------------------------//
+//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//
 
 Question_01:
 Which of the following correctly initializes an array arr to contain four elements each with a value of 0? 
@@ -252,15 +253,15 @@ public static boolean match(int[] v, int[] w, int N, int M)
 Assuming that the method has not been exited, which assertion is true at the
 end of every execution of the while loop? 
 
-/*	A.	V[0] .. v[vIndex-1] and w[0] .. w[wIndex-1] contain one common 
+/*	A.	V[0] .. v[vIndex-1] and w[0] .. w[wIndex-1] contain no common 
 		value, vIndex <= N and wIndex <= M.*/
-	B.//V[0] .. v[vIndex] and w[0] .. w[wIndex] contain one common value, 
+	B.//V[0] .. v[vIndex] and w[0] .. w[wIndex] contain no common value, 
 	  //vIndex <= N and wIndex <= M. 
-	C.	V[0] .. v[vIndex-1] and w[0] .. w[wIndex-1] contain one common 
+	C.	V[0] .. v[vIndex-1] and w[0] .. w[wIndex-1] contain no common 
 		value, vIndex <= N-1 and wIndex <= M-1.
-	D.	V[0] .. v[vIndex] and w[0] .. w[wIndex] contain one common value, 
+	D.	V[0] .. v[vIndex] and w[0] .. w[wIndex] contain no common value, 
 		vIndex <= N-1 and wIndex <= M-1.
-	E.	V[0] .. v[N-1] and w[0] .. w[M-1] contain one common value, 
+	E.	V[0] .. v[N-1] and w[0] .. w[M-1] contain no common value, 
 		vIndex <= N and wIndex <= M.
 
 Answer: 
@@ -271,19 +272,31 @@ make an assertion for values v[0] .. v[vIndex - 1] .. w[wIndex - 1]. Also,
 notice that if there is no common value in the arrays, the exiting condition 
 for the while loop will be that the end of the on of the arrays has been 
 reached, namely vIndex equals N or wIndex equals M. 
+
+//many confuse
+
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
 Question_09
 Which declaration will cause an error? 
-I.	List <String> stringList = new ArrayList<String>();
-II.	List <int> intList = new ArrayList<int>();
-III.ArrayList<String>compList = new ArrayList<String>();
+	I.	List <String> stringList = new ArrayList<String>();
+	II.	List <int> intList = new ArrayList<int>();
+	III.ArrayList<String>compList = new ArrayList<String>();
 
-A.	I only
-B.	II only
-C.//III only
-D.	I and III only
-E.	II and III only
+	A.	I only
+/*	B.	II only*/
+	C.//III only
+	D.	I and III only
+	E.	II and III only
+
+Answer: 
+(B) The type parameter in a generic ArrayList must be a class type, not a 
+primitive (remember that ArraList objects can only contain other objects). 
+Declaration II would be correct if it were
+
+	List <Integer> intList = new ArrayList<Integer>();
+	
+//CANT BE int MUST BE Integer
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
@@ -311,14 +324,23 @@ enable that method to compute 1 + 2 + ... + n correctly for any n > 0?
 		else
 		   return sum(n) + sum(n - 1);
 
-A.	I only
-B.	II only
-C.	III only
-D.//I and II only
-E.	I, I, and III
+	A.	I only
+/*	B.	II only*/
+	C.	III only
+	D.//I and II only
+	E.	I, I, and III
+	
+Answer: 
+(B) Code segment I is wrong because there is no base case (condition under 
+which loop will exit). Code segment III is wrong because, besides anything 
+else, sum (n) prevents the method from terminating-the base case n == 1 
+will not be reached. 
+
+//I NEEDS A CONDITIONAL (IF) AND III NEVER ENDS BECUASE N WILL NEVER == 1
+
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
-Question_10.5
+Question_11
 
 Refer to the method stringRecur:
 	public void stringRecur(String s)
@@ -329,11 +351,16 @@ Refer to the method stringRecur:
 	}
 
 When will method stringRecur terminate without error? 
-A.	Only when the length of the input string is less than 15
-B.	Only when the length of the input string is greater than or equal to 15
-C.	Only when an empty string is input
-D.//For all string inputs
-E.	For no string inputs
+	A.	Only when the length of the input string is less than 15
+	B.	Only when the length of the input string is greater than or equal to 15
+	C.	Only when an empty string is input
+	D.//For all string inputs
+/*	E.	For no string inputs*/
+
+Answer: 
+(E)  When stringRecur is invoked, it calls itself irrespective of the length of s. 
+Since there is no action that leads to termination, the method will not 
+terminate until the computer runs out of memory (run-time error). 
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
