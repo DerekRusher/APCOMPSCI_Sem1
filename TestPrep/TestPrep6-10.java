@@ -3,6 +3,10 @@
 //---------------------------------------------8-----------------------------------------------//
 //COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//
 
+
+at 13
+
+
 Question_01:
 Which of the following correctly initializes an array arr to contain four elements each with a value of 0? 
 
@@ -107,7 +111,8 @@ Answer:
 (A) The code segment has the effect of removing all occurrences of 0 from 
 array arr1. Then the nonzero elements are transferred to array arr2.
 
-//FOR LOOP WASA CONFUSING, ASSUME IT ENDS AFTER THE IF CLOSES.
+//count forces arr1 to have 642 as the values and forces arr2 to have 2 values.
+//last for loop fills it with a
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
@@ -362,6 +367,8 @@ Answer:
 Since there is no action that leads to termination, the method will not 
 terminate until the computer runs out of memory (run-time error). 
 
+//recursion happens forever; it is outside of the if statement.
+
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
 Questions 11 and 12 refer to method result: 
@@ -376,27 +383,41 @@ public int result(int n)
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
-Question_11
-What value does result(5) return? 
-A.	64
-B.//32
-C.	16
-D.	8
-E.	2
-
-/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
-
 Question_12
-If n > 0, how many times will result be called to evaluate result(n) (including the initial call)? 
-A.	2
-B.	2^n
-C.//n
-D.	2n
-E.	n^2
+What value does result(5) return? 
+	A.	64
+	B.//32
+	C.	16
+	D.	8
+	E.	2
+	
+Answer: 
+(B) See the following example 
+	
+	result(5) = 2 * result(4)
+		      = 2 *(2*(result(3)))
+			  = 2 * (2 * (2 * (result(1))))
+			  = 2^5
+			  = 32
+
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
 Question_13
+If n > 0, how many times will result be called to evaluate result(n) (including the initial call)? 
+	A.	2
+	B.	2^n
+/*	C.//n*/
+	D.	2n
+	E.	n^2
+
+Answer: 
+(C) For result(n) there will be (n - 1) recursive calls before result(1), the 
+base case is reached. Adding the initial call gives a total of n method calls. 
+
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
+
+Question_14
 Refer to method mystery:
 	
 	public int mystery(int n, int a, int d)
@@ -409,15 +430,26 @@ Refer to method mystery:
 
 
 What value is returned by the call mystery (3, 2, 6)? 
-A.	20
-B.//14
-C.	10
-D.	8
-E.	2
+	A.	20
+/*	B.//14*/
+	C.	10
+	D.	8
+	E.	2
+
+Answer: 
+This method returns the nth term of an arithmetic sequence with the first
+term a and common difference d. Take a look at the following example. 
+
+
+mystery(3, 2, 6) = 6 + mystery(2, 2, 6)
+			  = 6 + (6( + mystery(1, 2, 6)) (base case)
+			  = 6 + 6 + 2
+			  = 14
+
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
-Question_14
+Question_15
 Refer to method f:
 	public int f(int k, int n)
 	{
@@ -430,15 +462,19 @@ Refer to method f:
 			   return f(k-n, n);
 	}
 What value is returned by the call f(6, 8)?
-A.	8
-B.	4
-C.	3
-D.//2
-E.	1
+	A.	8
+	B.	4
+	C.	3
+/*	D.//2*/
+	E.	1
+
+Answer: 
+(D) Here are the recursive calls that are made, in order: f(6, 8) → f(6, 2) → 
+f(4, 2) → f(2, 2), base case. Thus, 2 is returned. 
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
-Question_15
+Question_16
 What does method recur do? 
 	/** @param x an array of n integers
 	*  @param n a positive integer        
@@ -457,11 +493,11 @@ What does method recur do?
 			   return t;
 	   }
 
-A.//It finds the largest value in x and leaves x unchanged
-B.	It finds the smallest value in x and leaves x unchanged
-C.	It sorts x in ascending order and returns the largest value in x. 
-D.	It sorts x in descending order and returns the largest value in x. 
-E.	It returns x[0] or x [n-1], whichever is larger. 
+/*	A.//It finds the largest value in x and leaves x unchanged*/
+	B.	It finds the smallest value in x and leaves x unchanged
+	C.	It sorts x in ascending order and returns the largest value in x. 
+	D.	It sorts x in descending order and returns the largest value in x. 
+	E.	It returns x[0] or x [n-1], whichever is larger. 
 
 Answer: 
 (A) If there is only one element in x, then recur return that element. Having 
@@ -472,7 +508,7 @@ each element in x. The largest value in x is returned.
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
-Question_16
+Question_17
 Consider the following declarations
 	static List<String> strList = new ArrayList<String>();
 	static String ch = " ";
@@ -483,7 +519,7 @@ Consider the following declarations
 	B.	strList.add(new String("handy andy"));
 	C.	strList.add(intOb.toString());
 	D.	strList.add(ch + 8);
-	E.//strList.add(intOb + 8);
+/*	E.//strList.add(intOb + 8);*/
 
 Answer: 
 (E) All elements added to strList must be of type String. Each choice satisfies 
@@ -494,7 +530,7 @@ a String
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
-Question_17
+Question_18
 Let list be an ArrayList<Integer> containing these elements: 
 	2, 5, 7, 6, 0, 1
 	
@@ -504,7 +540,7 @@ other statements.
 
 	A.	Object ob = list.get(6);
 	B.	Integer intOb = list.add(3.4);
-	C.//list.add(6, 9);
+/*	C.//list.add(6, 9);*/
 	D.	Object x = list.remove(6);
 	E.	Object y = list.set(6, 8);
 
@@ -517,7 +553,7 @@ is attempting to add an element of type Double to a list of type Integer.
 	
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
-Question_18
+Question_19
 Refer to the method insert below: 
 	/** @param list an ArrayLis of String objects
 	*  @param element a String object
@@ -532,6 +568,15 @@ Refer to the method insert below:
 		   index++;
 	   list.add(index, element);
 	}
+	
+Assuming that the type of element is compatible with the objects in the list, 
+which is a true statement about the insert method? 
+
+	A.	It works as intended for all values of element
+	B.	It fails for all values of element
+	C.	It fails if element is greater than the first item in list and works in all other cases. 
+	D.	It fails if element is smaller than the last item in list and works in all other cases. 
+	E.	It fails if element is either greater than the first item or smaller than the last item in list and works in all other cases. 
 
 Answer: 
 (D) If element is smaller than the last item in the list, it will be compared 
@@ -541,7 +586,5 @@ that is out of bounds. To avoid this error, the test in the while loop should be
 
 	while(index < list.size() &&
 		   element.compareTo(list.get(index)) < 0);
-
-
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
