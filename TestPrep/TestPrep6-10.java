@@ -1,10 +1,6 @@
 //COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//
 //---------------------------------------------7-----------------------------------------------//
-//---------------------------------------------8-----------------------------------------------//
 //COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//COME BACK TO THIS//
-
-
-at 13
 
 
 Question_01:
@@ -155,7 +151,7 @@ same class as the doSomething method?
 	
 	A.	0 0 
 	B.//2 4 
-	C.	1 3
+/*	C.	1 3*/
 	D.	0 2 
 	E.	2 3
 
@@ -211,11 +207,11 @@ III.Change the while loop as follows:
 	Make no other changes.
 	
 	
-A.//I only
-B.	II only
-C.	III only 
-D.	I and II only
-E.	I, II, and III
+	A.//I only
+/*	B.	II only*/
+	C.	III only 
+	D.	I and II only
+	E.	I, II, and III
 
 Answer:
 (B) There are two problems with the segment as given: 
@@ -224,8 +220,7 @@ Answer:
 	error for the if(arr[i] < min) test. 
 
 //COME BACK TO THIS
-	
-	
+
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
 Question_08
@@ -277,8 +272,6 @@ make an assertion for values v[0] .. v[vIndex - 1] .. w[wIndex - 1]. Also,
 notice that if there is no common value in the arrays, the exiting condition 
 for the while loop will be that the end of the on of the arrays has been 
 reached, namely vIndex equals N or wIndex equals M. 
-
-//many confuse
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//*****/
 
