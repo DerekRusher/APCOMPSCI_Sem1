@@ -7,5 +7,7 @@ public class sonicTheHedgehog
 		System.out.println("Please enter how many hours you travelled: ");
 		
 		System.out.println("Please enter how many minutes you travelled: ");
+		
+		System.out.println("Please enter ");
 	}
 }
