@@ -1,10 +1,10 @@
-import static java.lang.math.*;
+import static java.lang.Math.*;
 public class tailsTheFox
 {
-	private int distance, hours, minutes;
+	private double distance, hours, minutes;
 	private double mph;
 	
-	public tailsTheFox
+	public tailsTheFox()
 	{
 		distance = 0;
 		hours = 0;
@@ -12,32 +12,41 @@ public class tailsTheFox
 		mph = 0;
 	}
 	
-	public tailsTheFox(int d, int h, int m, double mphP)
+	public tailsTheFox(double d, double h, double m)
 	{
 		distance = d;
 		hours = h;
 		minutes = m;
-		mph = mphP;
+		mph = 0;
 	}
 	
-	public void setDistance(int d)
+	public void setValues(double d, double h, double m)
 	{
 		distance = d;
-	}
-	
-	public void setHours(int h)
-	{
 		hours = h;
+		minutes = m;
+		mph = 0;
+	}
+
+	public double getDistance()
+	{
+		return distance;
 	}
 	
-	public void setMinutes(int m)
+	public double getHours()
 	{
-		minutes = m;
+		return hours;
+	}
+	
+	public double getMinutes()
+	{
+		return minutes;
 	}
 	
 	public double getMPH()
 	{
 		mph = Math.round(distance / (hours + minutes / 60));
+		return mph;
 	}
 	
 }
