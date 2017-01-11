@@ -323,10 +323,303 @@ same class as the printSome() method?
 
 	A.	0 0 0
 	B.	1 2 3 
-	C.	0 1 3 
+/*	C.//0 1 3*/
 	D.	0 1 2 
 	E.	1 3 5
+	
+	
+Answer: (C) 
+This one is simple if you can see that arrAy is changed by the printSome() method. 
+
+arrAy , lyst, and arrAy2 are all objects. In Java, when you set two or 
+objects equal to one another you are not setting them equal to the same values. 
+ 				
+				Not doing this
+			arrAy = {10, 20, 30, 40}
+			lyst = {10, 20, 30, 40}
+			arrAy2 = {10, 20, 30, 40}
+
+You are actually telling Java to let these objects refer to the same data. To 
+use the above code segment as an example, arrAy is passed into printSome() 
+as a parameter, effectively setting the parameter lyst equal to arrAy.printSome() 
+then sets arrAy2 = to lyst, which effectively means…
+
+	arrAy2  = lyst = arrAy = {10, 20, 30, 40}
+
+In other words, arrAy, lyst, and arrAy2 now all refer to the same values. 
+
+Therefore, as printSome() changes the data values on arrAy2, they are 
+changed for lyst and arrAy as well. 
+
+arrAy[0], arrAy[1],arrAy[3] are printed by the print statement at the bottom.
+
+/*********************************************************************************************************/
+
+Question_08
+
+The following code fragment is intended to find the smallest value in arrAy[0] . . . arrAy[n - 1]. 
+
+	/** Precondition:
+	*   -arrAy is an array, arrAy.length = n
+	*   arrAy[0] . . . arrAy[n-1]initialized with integers.
+	*   Postcondition: max = largest value in arrAy[0]
+	*/
+	int max = arrAy[0];
+	int i = n - 1;
+
+	while (i >= 0) 
+	{
+	   i--;
+	   if(arrAy[i] > max)
+		   max = arrAy[i];
+	}
+
+This code is incorrect. For the segment to work as intended, which of the 
+following modifications could be made? 
+
+	I.	Change the line 
+			int i = n - 1;
+			to
+			int i = n;
+
+		Make no other changes
+
+	II.	Change the body of the while loop to 
+			{
+			if(arrAy[i] > max)
+				   max = arrAy[i];
+			i--;
+			}
+
+		Make no other changes
+
+	III.Change the test for the while loop as follows:
+			
+			while (i > 0)
+
+		Make no other changes
 
 
+	A.	I ony
+/*	B.//II only*/
+	C.	III only 
+	D.	I and II only
+	E.	I, II, and III
+
+Answer: (B) 
+There are two problems with the segment as it’s given to us: 
+	1.	arrAy [n-1] is not tested
+	2.	i will eventually be incremented to -1, which will lead to an out of 
+		bounds exception for the  if(arrAy[i] > max)  test
+
+No matter what else is changed, the loop will eventually create an out of 
+bounds exception because 1 is subtracted from i before the 
+if(arrAy[i] > max) test in the loop. 
+
+Even if you change the initial value of i like in answer I, the loop eventually 
+is able to iterate down to -1 before if(arrAy[i] > max)  is checked. 
+
+Changing the while loop to i > 0 will solve the out of bounds exception, but 
+will prevent the loop from checking the value at position n - 1. If the 
+greatest number is in that position, you could get inaccurate results. 
+
+Answer II is the only real solution. The i-- is moved.
+
+/*********************************************************************************************************/
+
+Question_09
+Which declaration will cause an error? 
+
+	I.	List <Integer> numList = new ArrayList<>();
+	II.	List <String> intList;
+	III.ArrayList<boolean>compList = new ArrayList<boolean>();
+
+	A.	I only
+	B.	II only
+/*	C.//III only*/
+	D.	I and III only
+	E.	II and III only
+	
+Answer: (C) 
+Remember that you can declare a List as an ArrayList. III will cause an error, 
+because ArrayLists can only contain objects, not primitive values. If you want 
+to put boolean values into an ArrayList, you must use Boolean objects. 
+
+	ArrayList<Boolean>compList = new ArrayList<Boolean>();
+	
+/*********************************************************************************************************/
+
+Question_10(Modified - full points For P5 and P7)
+Which of the following, when used as the /* body */ of method 
+countDigits(), will enable that method to compute the number of 
+digits for any number n?
+
+		/** @param n a positive integer
+		*  @return number of digits
+		*/
+		public int countDigits(int n)
+		{
+		   /* body */
+		}
+
+		I.	return 1 + countDigits(n / 10)
+
+		II.	if (n > 0)
+			   return 1 + countDigits(n / 10);
+			return 0;
+
+		III.if (n > 0)
+			   return n + countDigits(n / 10);
+			return 0;
+					
+	A.	I only
+	B.//II only
+	C.	III only
+	D.	I and II only
+	E.	I, II, and III
+
+Answer: (B) 
+
+Answer I is wrong because it has no escape condition for the the recursive 
+loop. The loop will continue to return 1 + countDigits(n/10) until the 
+computer runs out of memory. 
+
+Answer III is wrong because it adds n to the return. The loop runs n number 
+of times, which is appropriate, but it does not result in the correct number \
+of digits. For Example, let’s examine the output if n = 325. 
+
+countDigits(325) - returns 325 + countDigits(32)	returns 325 + 35 = 360
+countDigits(32) - returns 32 + countDigits(3)		returns 32 + 3 = 35
+countDigits(3) - returns 3 + countDigits(0)		returns 3
+countDigits(0) - returns 0
 
 
+Answer II is correct because it adds 1 to the return for each digit. Let’s try 
+again with Answer II’s body using n = 3. 
+
+countDigits(325) - returns 1 + countDigits(32)		returns 1 + 1 + 1 = 3
+countDigits(32) - returns 1 + countDigits(3)		returns 1 + 1
+countDigits(3) - returns 1 + countDigits(0)		returns 1
+countDigits(0) - returns 0
+
+/*********************************************************************************************************/
+
+Question_11
+Refer to the method stringRecur:
+	public void stringRecur(String s)
+	{
+	   if(s.length() < 15)
+		   System.out.println(s);
+	   else
+		   stringRecur(s + "*");
+	}
+
+When will method stringRecur terminate without error? 
+/*	A.//Only when the length of the input string is less than 15*/
+	B.	Only when the length of the input string is greater than or equal to 15
+	C.	Only when an empty string is input
+	D.	For all string inputs
+	E.	For no string inputs
+
+Answer: (A)  
+The escape condition in the loop is if(s.length() < 15). If the length of the 
+input string is not < 15 initially, the “*” will be added to s over and over,
+only increasing the length of s. Since the length of s will never be < 15, 
+the recursive loop will continue until the computer runs out of memory (runtime error). 
+
+/*********************************************************************************************************/
+
+Question_12
+Refer to the method stringRecur:
+
+	public String stringRecur(String s)
+	{
+	   if(s.length() < 15)
+		   return s;
+	   return stringRecur(s + "*");
+	}
+
+
+When will method stringRecur terminate without error? 
+/*	A.//Only when the length of the input string is less than 15*/
+	B.	Only when the length of the input string is greater than or equal to 15
+	C.	Only when an empty string is input
+	D.	For all string inputs
+	E.	For no string inputs
+
+
+Answer: (A)  
+This is actually the same problem as Question_12. However, you must remember 
+that a return exits a method. If the initial value of String s is < 15, 
+the value of s is returned, which stops the loop and exits the method before 
+the recursive call to stringRecur(). You do not need an else since the 
+program never reads the recursive call. 
+
+/*********************************************************************************************************/
+
+Question_13
+public int result(int n)
+{
+   if(n == 0)
+       return 0;
+   else
+       return 3 + result(n / 10);
+}
+
+What value does result(5342) return? 
+	A.	3
+	B.	0
+//	C.//12
+	D.	15
+	E.	4
+
+Answer: (C) 
+This question can be answered without plugging through the loop. You can see 
+that the loop will run once for each digit in the value of n. Since an is an 
+int, division by 10 will result in the removal of the right digit. This happens 
+once for each digit until n == 0. Therefore, the loop runs n times. You can 
+also see in the else statement that the loop will add 3 to the return value each it runs. 
+
+Therefore, if the loop adds 3 to the return 4 times, the return will be 12
+
+First run: 3 + result(534)	returns 12
+2nd run: 3 + result(53)	returns 9
+3rd run: 3 + result(5)		returns 6
+4th run: 3 + result(0) 		returns 3
+
+/*********************************************************************************************************/
+
+Question_14
+public int result(int n)
+{
+   if(n == 0)
+       return 0;
+   else
+       return 1 + result(n - 1);
+}
+
+What value does result(8) return? 
+	A.//8
+	B.	0
+	C.	4
+	D.	1
+	E.	Nothing. The code will produce an error. 
+
+Answer: (A) 
+You don’t need to complete the entire loop to answer this question. If you 
+look carefully, you can see that the recursive loop will run n times, starting 
+with n = 8 and returning n-1 until n = 0. Each time the loop runs, one is 
+added to the return. If n = 8, 1 is added to the return 8 times, leaving a 
+final return of 8. 
+
+result(8): returns 1 + result(7)	returns 8
+result(7): returns 1 + result(6)	returns 7
+result(6): returns 1 + result(5)	returns 6
+result(5): returns 1 + result(4)	returns 5
+result(4): returns 1 + result(3)	returns 4
+result(3): returns 1 + result(2)	returns 3
+result(2): returns 1 + result(1)	returns 2
+result(1): returns 1 + result(0)	returns 1
+result(0): returns 0
+
+/********************************************************************************************************/
