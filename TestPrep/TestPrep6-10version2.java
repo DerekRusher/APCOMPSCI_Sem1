@@ -599,7 +599,7 @@ public int result(int n)
 }
 
 What value does result(8) return? 
-	A.//8
+/*	A.//8*/
 	B.	0
 	C.	4
 	D.	1
@@ -623,3 +623,177 @@ result(1): returns 1 + result(0)	returns 1
 result(0): returns 0
 
 /********************************************************************************************************/
+
+Question_15
+Refer to method nums: 
+
+	public int shuffle(int x, int a, int b)
+	{
+	   if(x < 2)
+		   return a;
+	   else
+		   return b + shuffle(x - 1, a, b);
+	}
+
+What value is returned by the call nums(2, 4, 6)? 
+	A.	20
+	B.	14
+/*	C.//10*/
+	D.	8
+	E.	2
+	
+Answer: (C) 
+You can determine the following without plugging through the loop: 
+	1.	The loop will run 2 times, because we are starting with n = 2. The loop 
+		starts with the value of n, and recursively calls nums with n-1 
+		substituted for n until n < 2 or n == 1.
+	2.	For n - 1 times, d is added to the return
+			else
+				return d + nums(n - 1, a, d);
+
+	3.	Therefore, we add d to the return once
+		Finally, we know that the last run of the loop will add 4 to the return, because a=4. 
+			if(n < 2)
+				   return a;
+
+
+We end with a total of 1 * d + a, or 6 + 4 = 10. Take a look at the proof below. 
+
+Loop runs once: 	
+n = 2, a = 4, d = 6; returns 6 + nums(1, 4, 6)	returns 6 + 4 = 10
+Loop runs twice: 	
+n = 1, a = 4, d = 6; returns a				returns 4
+
+/*********************************************************************************************************/
+
+Question_16
+Refer to method f:
+		public int f(int k, int n)
+		{
+		   if(n == k)
+			   return k;
+		   else
+			   if(n > k)
+				   return f(k, n-k);
+			   else
+				   return f(k-n, n);
+		}
+
+What value is returned by the call f(6, 8)?
+	A.	8
+	B.	4
+	C.	3
+/*	D.//2*/
+	E.	1
+
+Answer: (D) 
+This problem is easy to solve if you logically analyse what it does. To start, 
+we evaluate if(n == k) if this is the case, we return k and the program exits. 
+
+If not, we evaluate which int value is greater. 
+	if(n > k)
+		 return f(k, n - k);
+		We recursively call f(k, n-k) until n == k
+	else #if n < k
+		 return f(k-n, n);
+			We recursively call f(k-n, n) until n == k
+
+Once we reach n == k, the value of n and k should be equal to the original 
+difference between the two. 
+
+f(6, 8) - returns f(6, 8 - 6)
+f(6, 2) - returns f(6 - 2, 2)
+f(4, 2) - returns f(4 - 2, 2)
+f(2, 2) - k = 2, therefore we return 2
+
+/*********************************************************************************************************/
+
+Question_17
+Consider the following declarations
+	List<String> words = new ArrayList<String>();
+	String space = " ";
+	Integer num = new Integer(5);
+
+	Which statement will cause an error? 
+	A.	words.add(space);
+	B.	words.add("Number: " + num );
+	C.	words.add("" + num);
+	D.	words.add(space + 8);
+//	E.	words.add(num);
+
+Answer: (E) 
+E is incorrect, because it is attempting to add an Integer object to words. 
+
+/*********************************************************************************************************/
+
+Question_18
+Consider the following declarations
+	static List<Integer> numbers = new ArrayList<Integer>();
+	static String space = " ";
+	static String word = "Numbers:";
+
+
+Which statement will cause an error? 
+	A.//System.out.println(numbers);
+	B.	System.out.println(word + space + numbers);
+	C.	System.out.println("\"" + numbers + "\"");
+	D.	numbers.add(8);
+/*	E.	String nString = "" + numbers[0];*/
+	
+Answer: (E) 
+If you look carefully you’ll notice that the error is not in the declaration itself, 
+but in the call to numbers[0]. Since numbers is an ArrayList, you cannot call an 
+index directly as you can with a regular Array. To make this call correctly, you 
+would use the ArrayList.get() method. 
+	String nString = "" + numbers.get(0);
+	
+/*********************************************************************************************************/
+
+Question_19
+Let numbers be an ArrayList<Integer> containing these elements: 
+	2, 5, 7, 6, 0, 1
+	
+Which of the following statements would cause an error to occur? 
+Assume that each statement applies to the given numbers, 
+independent of the other statements. 
+
+	A.	System.out.println(numbers);
+	B.	System.out.println(numbers.get(5));
+	C.	Integer intOb = numbers.get(4);
+/*	D.//System.out.println(numbers.length);*/
+	E.	numbers.set(5, 8);
+	
+Answer: (D)  
+Answer D employs the Array.length property, which will work on any array. 
+However, the length of an ArrayList is private, and can only be accessed 
+using the ArrayList.size() method.
+	System.out.println(numbers.size());
+
+/*********************************************************************************************************/
+
+Question_20
+Refer to the method insert below: 
+
+		/** @param list an ArrayList of String objects
+		*  @param element a String object
+		*  Precondition: list contains String values sorted
+		*               in decreasing order.
+		*  Postcondition: element inserted in its correct position in list
+		*/
+		public void insert(List <String> list, String element)
+		{
+		   int index = 0;
+		   while(element.compareTo(list.get(index)) > 0)
+			   index++;
+		   list.add(index, element);
+		}
+
+If list contains the values "mouse", "house", "cat", "dog", "door" , 
+which of the following values for element would produce an error? 
+
+
+	A.	No word will produce an error
+	B.	"bob"
+//	C.	"zoo" 
+	D.	Any word will produce an error
+	E.	"0" 
