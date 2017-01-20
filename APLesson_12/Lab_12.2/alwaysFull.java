@@ -4,7 +4,7 @@ public class alwaysFull
 	private String name;
 	private String category;
 	private int UPC;
-	private int price;
+	private double price;
 	
 	public alwaysFull(String m, String n)
 	{
@@ -15,7 +15,7 @@ public class alwaysFull
 		price = 0;
 	}
 	
-	public alwaysFull(String m, String n, String c, int p)
+	public alwaysFull(String m, String n, String c, double p)
 	{
 		Manufacturer = m;
 		name = n;
@@ -26,6 +26,6 @@ public class alwaysFull
 	
 	public String toString()
 	{
-		return "Manufacturer: " + Manufacturer + "\nName: " + name + "\nCategory: " + category + "\nUPC#: " + UPC + "\nPrice: " + price;
+		return "Manufacturer: " + Manufacturer + "\nName: " + name + "\nCategory: " + category + "\nUPC#: " + UPC + "\nPrice: " + price + "0 Dollars";
 	}
 }
