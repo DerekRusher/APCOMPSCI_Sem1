@@ -1,27 +1,7 @@
 import java.util.Scanner;
 public class gpaFinalCondensedv2{
-	static double ph;
-	static double es;
-	static double sp;
-	static double cs;
-	static double im;
-	static double el;
-	static double us;
-	static boolean b1;
-	static boolean b2;
-	static boolean b3;
-	static boolean b4;
-	static boolean b5;
-	static boolean b6;
-	static boolean b7;
-	static boolean b8;
-	static double pGPA;
-	static double tenerGPA;
-	static double tenerGPAVersion2;
-	static double ninerGPA;
-	static double ninerGPAVersion2;
-	static double sevenerGPA;
-	static double sevenerGPAVersion2;
+	static double ph, es, sp, cs, im, el, us, pGPA, tenerGPA, tenerGPAVersion2, ninerGPA, ninerGPAVersion2, sevenerGPA, sevenerGPAVersion2;
+	static boolean b1, b2, b3, b4, b5, b6, b7, b8;
 	public static void main(String[]args){
 		Scanner in = new Scanner(System.in);
 		ph = printX("What is your current grade in AP Physics 1?", ph);
