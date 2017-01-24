@@ -2,34 +2,170 @@ import java.util.Scanner;
 public class gpaGeneral
 {
 	static boolean b1, b2;
-	static double[] classes;
-	static int num1, num2;
+	static double[] classes1, classes2, classes3, classes4;
+	static int num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11;
 	static double n1 = 0, n2 = 0;
-	static String select1, select2;
+	static String select1, select2, select3, select4, select5, select6, select7, select8, select9, select10, select11, select12;
 	public static void main(String[]args){
 		Scanner kb = new Scanner(System.in);
-		System.out.println("How many classes do you currently have?");
-		num1 = kb.nextInt();
-		System.out.println("Please enter the grades of all your classes");
-		classes = new double[num1];
-		filler();
-		
-		for(int i = 0; i < num1; i++)
-		{
-			classes[i] = calcPoints(classes[i]);
-		}
-		
+		System.out.println("How many semesters make up 1 school year at your school?");
+		num5 = kb.nextInt();
+		System.out.println("How many semesters of High School have you had, including this current semester?");
+		num4 = kb.nextInt();
+		num11 = num4;
+		System.out.println("If the questions is a yes or no question, \"a\" is yes and anything else is no");
 		System.out.println("For the following questions, \"a\" is yes and anything else is no");
 		System.out.println("Do you want to see your grades as unwieghted?");
 		select1 = kb.next();
 		System.out.println("Do you want to see your grades as wieghted?");
 		select2 = kb.next();
-		if (select1.equals("a"))
+		System.out.println("Do you want to see your current GPA?");
+		select3 = kb.next();
+		if(select3.equals("a"))
+		{
+			System.out.println("How many classes do you currently have?");
+			if(num4 % num5 ==0)
+				num1 = (kb.nextInt()*num5);
+			else
+			{
+				while(num4 > 0)
+				{
+				num4-=num5;
+				num4+=num5;
+				num1 = (kb.nextInt()*num4);
+				num4 = num11;
+				}
+			}
+			System.out.println("Please enter the grades of all your classes, once for each semester: ");
+			classes1 = new double[num1];
+			filler(classes1, num1);
+			for(int i = 0; i < num1; i++)
+			{
+				classes1[i] = calcPoints(classes1[i]);
+			}
+		}
+		if(num4>=(4*num5) || num4>=((4*num5)-1))
+		{
+			System.out.println("Do you want to see your 11th Grade GPA");
+			select4 = kb.next();
+			if(select4.equals("a"))
+			{
+				System.out.println("How many classes did you have in 11th Grade?");
+				if(num4 % num5 ==0)
+					num7 = (kb.nextInt()*num5);
+				else
+				{
+					while(num4 > 0)
+					{
+					num4-=num5;
+					num4+=num5;
+					num7 = (kb.nextInt()*num4);
+					num4 = num11;
+					}
+				}
+				System.out.println("Please enter the grades of all your classes, once for each semester: ");
+				classes2 = new double[num7];
+				filler(classes2, num7);
+				for(int i = 0; i < num7; i++)
+				{
+					classes2[i] = calcPoints(classes2[i]);
+				}
+			}
+		}
+		if (num4>=(3*num5) || num4>=((3*num5)-1))
+		{
+			System.out.println("Do you want to see your 10th Grade GPA?");
+			select5 = kb.next();
+			if(select5.equals("a"))
+			{
+				System.out.println("How many classes did you have in 10th Grade?");
+				if(num4 % num5 ==0)
+					num8 = (kb.nextInt()*num5);
+				else
+				{
+					while(num4 > 0)
+					{
+					num4-=num5;
+					num4+=num5;
+					num8 = (kb.nextInt()*num4);
+					num4 = num11;
+					}
+				}
+				System.out.println("Please enter the grades of all your classes, once for each semester: ");
+				classes3 = new double[num8];
+				filler(classes3, num8);
+				for(int i = 0; i < num8; i++)
+				{
+					classes3[i] = calcPoints(classes3[i]);
+				}
+			}
+		}
+		if (num4>=(2*num5) || num4>=((2*num5)-1))
+		{
+			System.out.println("Do you want to see your 9th Grade GPA?");
+			select6 = kb.next();
+			if(select6.equals("a"))
+			{
+				System.out.println("How many classes did you have in 9th Grade?");
+				if(num4 % num5 ==0)
+					num9 = (kb.nextInt()*num5);
+				else
+				{
+					while(num4 > 0)
+					{
+					num4-=num5;
+					num4+=num5;
+					num9 = (kb.nextInt()*num4);
+					num4 = num11;
+					}
+				}
+				System.out.println("Please enter the grades of all your classes, once for each semester: ");
+				classes4 = new double[num1];
+				filler(classes4, num9);
+				for(int i = 0; i < num9; i++)
+				{
+					classes4[i] = calcPoints(classes4[i]);
+				}
+			}
+		}
+		num10 = num4/num5;
+		if(num4 % num5 != 0)
+		{
+			while(num4 > 0)
+			{
+				num4-=num5;
+			}
+			num4+=num5;
+			num10+=num4;
+		}
+		if(num10>=4 && select3.equals("a"))
+		{
+			System.out.println("Do you wish to see your 9th-12th Grade GPA?");
+			select7 = kb.next();
+			System.out.println("Do you wish to see your 10th-12th Grade GPA?");
+			select8 = kb.next();
+			System.out.println("Do you wish to see your 11th-12th Grade GPA?");
+			select9 = kb.next();
+		}
+		if(num10>=3 && (select4.equals("a") || select3.equals("a")))
+		{
+			System.out.println("Do you wish to see your 9th-11th Grade GPA?");
+			select10 = kb.next();
+			System.out.println("Do you wish to see your 10th-11th Grade GPA?");
+			select11 = kb.next();
+		}
+		if(num10>=2 && (select5.equals("a") || select3.equals("a")))
+		{
+			System.out.println("Do you wish to see your 9th-10th Grade GPA?");
+			select12 = kb.next();
+		}
+		/*if (select1.equals("a"))
 		{
 			for(int i = 0; i < num1; i++)
 			{
 				n1 += classes[i];
 			}
+			System.out.printf("Your total unwieghted GPA is %.1f or " + n1/num1, n1/num1);
 		}
 		if (select2.equals("a"))
 		{
@@ -39,10 +175,9 @@ public class gpaGeneral
 			{
 				n2 += classes[i];
 			}
-		}
+			System.out.printf("\nYour total   wieghted GPA is %.1f or " + (n2+num2)/num1, (n2+num2)/num1);
+		}*/
 		
-		System.out.printf("Your current unwieghted GPA is %.1f or " + n1/num1, n1/num1);
-		System.out.printf("\nYour current   wieghted GPA is %.1f or " + (n2+num2)/num1, (n2+num2)/num1);
 	}
 		
 	public static double calcPoints(double m)
@@ -61,23 +196,23 @@ public class gpaGeneral
 		return one;
 	}
 		
-	public static void filler()
+	public static void filler(double[] classes, int num)
 	{
 		Scanner kb = new Scanner(System.in);
-		for(int i = 0; i < num1; i++)
+		for(int i = 0; i < num; i++)
 		{
 			double qwerty = kb.nextDouble();
 			classes [i] = qwerty;
 		}
 	}
 	
-	public static void printer()
+	/*public static void printer()
 	{
 		for(int i = 0; i < num1; i++)
 		{
 			System.out.println(classes[i]);
 		}
-	}
+	}*/
 }
 		
 		
