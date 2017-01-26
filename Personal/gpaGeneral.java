@@ -3,18 +3,18 @@ public class gpaGeneral
 {
 	static boolean b1, b2;
 	static double[] classes1, classes2, classes3, classes4;
-	static int num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11;
-	static double n1 = 0, n2 = 0;
+	static int num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num13, num14, num15;
+	static double n1 = 0, n2 = 0; n3 = 0; n4 = 0; n5 = 0; n6 = 0; n7 = 0; n8 = 0; n9 = 0;
 	static String select1, select2, select3, select4, select5, select6, select7, select8, select9, select10, select11, select12;
 	public static void main(String[]args){
 		Scanner kb = new Scanner(System.in);
-		System.out.println("How many semesters make up 1 school year at your school?");
+		System.out.println("WELCOME: To GPA MASTER CALCULATOR by Derek Rusher\n");
+		System.out.println("How many semesters make up 1 school year at your school?"/*\nIf you went to different school with a different number of semesters:\nplease enter the school with the largest number of semesters, \nand imput the data for schools with less semesters the appropriate number of extra times."*/);
 		num5 = kb.nextInt();
-		System.out.println("How many semesters of High School have you had, including this current semester?");
+		System.out.println("How many semesters of High School have you had, including this current semester?\nPlease omit anything before the last 4 years of high school");
 		num4 = kb.nextInt();
 		num11 = num4;
 		System.out.println("If the questions is a yes or no question, \"a\" is yes and anything else is no");
-		System.out.println("For the following questions, \"a\" is yes and anything else is no");
 		System.out.println("Do you want to see your grades as unwieghted?");
 		select1 = kb.next();
 		System.out.println("Do you want to see your grades as wieghted?");
@@ -31,10 +31,10 @@ public class gpaGeneral
 				while(num4 > 0)
 				{
 				num4-=num5;
+				}
 				num4+=num5;
 				num1 = (kb.nextInt()*num4);
 				num4 = num11;
-				}
 			}
 			System.out.println("Please enter the grades of all your classes, once for each semester: ");
 			classes1 = new double[num1];
@@ -51,18 +51,7 @@ public class gpaGeneral
 			if(select4.equals("a"))
 			{
 				System.out.println("How many classes did you have in 11th Grade?");
-				if(num4 % num5 ==0)
-					num7 = (kb.nextInt()*num5);
-				else
-				{
-					while(num4 > 0)
-					{
-					num4-=num5;
-					num4+=num5;
-					num7 = (kb.nextInt()*num4);
-					num4 = num11;
-					}
-				}
+				num7 = (kb.nextInt()*num5);
 				System.out.println("Please enter the grades of all your classes, once for each semester: ");
 				classes2 = new double[num7];
 				filler(classes2, num7);
@@ -79,18 +68,7 @@ public class gpaGeneral
 			if(select5.equals("a"))
 			{
 				System.out.println("How many classes did you have in 10th Grade?");
-				if(num4 % num5 ==0)
-					num8 = (kb.nextInt()*num5);
-				else
-				{
-					while(num4 > 0)
-					{
-					num4-=num5;
-					num4+=num5;
-					num8 = (kb.nextInt()*num4);
-					num4 = num11;
-					}
-				}
+				num8 = (kb.nextInt()*num5);
 				System.out.println("Please enter the grades of all your classes, once for each semester: ");
 				classes3 = new double[num8];
 				filler(classes3, num8);
@@ -107,77 +85,229 @@ public class gpaGeneral
 			if(select6.equals("a"))
 			{
 				System.out.println("How many classes did you have in 9th Grade?");
-				if(num4 % num5 ==0)
-					num9 = (kb.nextInt()*num5);
-				else
-				{
-					while(num4 > 0)
-					{
-					num4-=num5;
-					num4+=num5;
-					num9 = (kb.nextInt()*num4);
-					num4 = num11;
-					}
-				}
+				num9 = (kb.nextInt()*num5);
 				System.out.println("Please enter the grades of all your classes, once for each semester: ");
-				classes4 = new double[num1];
+				classes4 = new double[num9];
+				
 				filler(classes4, num9);
+				
 				for(int i = 0; i < num9; i++)
 				{
 					classes4[i] = calcPoints(classes4[i]);
 				}
 			}
 		}
-		num10 = num4/num5;
-		if(num4 % num5 != 0)
-		{
-			while(num4 > 0)
-			{
-				num4-=num5;
-			}
-			num4+=num5;
-			num10+=num4;
-		}
-		if(num10>=4 && select3.equals("a"))
-		{
-			System.out.println("Do you wish to see your 9th-12th Grade GPA?");
-			select7 = kb.next();
-			System.out.println("Do you wish to see your 10th-12th Grade GPA?");
-			select8 = kb.next();
-			System.out.println("Do you wish to see your 11th-12th Grade GPA?");
-			select9 = kb.next();
-		}
-		if(num10>=3 && (select4.equals("a") || select3.equals("a")))
-		{
-			System.out.println("Do you wish to see your 9th-11th Grade GPA?");
-			select10 = kb.next();
-			System.out.println("Do you wish to see your 10th-11th Grade GPA?");
-			select11 = kb.next();
-		}
-		if(num10>=2 && (select5.equals("a") || select3.equals("a")))
-		{
-			System.out.println("Do you wish to see your 9th-10th Grade GPA?");
-			select12 = kb.next();
-		}
-		/*if (select1.equals("a"))
-		{
-			for(int i = 0; i < num1; i++)
-			{
-				n1 += classes[i];
-			}
-			System.out.printf("Your total unwieghted GPA is %.1f or " + n1/num1, n1/num1);
-		}
-		if (select2.equals("a"))
-		{
-			System.out.println("Please enter the number of weighted classes you have: ");
-			num2 = kb.nextInt();
-			for(int i = 0; i < num1; i++)
-			{
-				n2 += classes[i];
-			}
-			System.out.printf("\nYour total   wieghted GPA is %.1f or " + (n2+num2)/num1, (n2+num2)/num1);
-		}*/
 		
+		if(select2.equals("a"))
+		{
+			if(select3.equals("a"))
+			{
+				System.out.println("Please enter the number of weighted classes you currently have: ");
+				num2 = kb.nextInt();
+			}
+			if(num4>=(4*num5) || num4>=((4*num5)-1))
+			{
+				if(select4.equals("a"))
+				{
+					System.out.println("Please enter the number of weighted classes you had in 11th gd: ");
+					num13 = kb.nextInt();
+				}
+			}
+			if (num4>=(3*num5) || num4>=((3*num5)-1))
+			{
+				if(select5.equals("a"))
+				{
+					System.out.println("Please enter the number of weighted classes you had in 10th gd: ");
+					num14 = kb.nextInt();
+				}
+			}
+			if (num4>=(3*num5) || num4>=((3*num5)-1))
+			{
+				if(select6.equals("a"))
+				{
+					System.out.println("Please enter the number of weighted classes you had in 09th gd: ");
+					num15 = kb.nextInt();
+				}
+			}
+		}
+		
+		if(num4>=(4*num5) || num4>=((4*num5)-1))
+		{
+			if(select3.equals("a"))
+			{
+				System.out.println("Do you wish to see your 11th-12th Grade GPA?");
+				select7 = kb.next();
+				System.out.println("Do you wish to see your 10th-12th Grade GPA?");
+				select8 = kb.next();
+			}
+		}
+		if(num4>=(3*num5) || num4>=((3*num5)-1))
+		{
+			if((select4.equals("a") || select3.equals("a")))
+			{
+				System.out.println("Do you wish to see your 10th-11th Grade GPA?");
+				select9 = kb.next();
+			}
+		}
+		if(num4>=(3*num5) || num4>=((3*num5)-1))
+		{
+			if((select5.equals("a") || select4.equals("a")))
+			{
+				System.out.println("Do you wish to see your total GPA?");
+				select10 = kb.next();
+			}
+		}
+		
+		if(select3.equals("a"))
+		{
+			if (select1.equals("a"))
+			{
+				for(int i = 0; i < num1; i++)
+				{
+					n1 += classes1[i];
+				}
+				System.out.printf("Your current unwieghted GPA is %.1f or " + n1/num1, n1/num1);
+			}
+			if (select2.equals("a"))
+			{
+				for(int i = 0; i < num1; i++)
+				{
+					n1 += classes1[i];
+				}
+					System.out.printf("\nYour current   wieghted GPA is %.1f or " + (n1+num2)/num1, (n1+num2)/num1);
+			}	
+			else
+			{
+				System.out.println("You have selected to print nothing");
+			}
+		}
+		if(num4>=(4*num5) || num4>=((4*num5)-1))
+		{
+			if(select4.equals("a"))
+			{
+				if (select1.equals("a"))
+				{
+					for(int i = 0; i < num1; i++)
+					{
+						n2 += classes2[i];
+					}
+					System.out.printf("Your 11th gd unwieghted GPA is %.1f or " + n2/num7, n2/num7);
+				}
+				if (select2.equals("a"))
+				{
+					for(int i = 0; i < num1; i++)
+					{
+						n2 += classes2[i];
+					}
+						System.out.printf("\nYour 11th gd   wieghted GPA is %.1f or " + (n2+num13)/num7, (n2+num13)/num7);
+				}	
+			}
+		}
+		if(num4>=(3*num5) || num4>=((3*num5)-1))
+		{
+			if(select5.equals("a"))
+			{
+				if (select1.equals("a"))
+				{
+					for(int i = 0; i < num1; i++)
+					{
+						n3 += classes3[i];
+					}
+					System.out.printf("Your 10th gd unwieghted GPA is %.1f or " + n3/num8, n3/num8);
+				}
+				if (select2.equals("a"))
+				{
+					for(int i = 0; i < num1; i++)
+					{
+						n3 += classes3[i];
+					}
+						System.out.printf("\nYour 10th gd   wieghted GPA is %.1f or " + (n3+num14)/num8, (n3+num14)/num8);
+				}	
+			}
+		}
+		if(num4>=(2*num5) || num4>=((2*num5)-1))
+		{
+			if(select6.equals("a"))
+			{
+				if (select1.equals("a"))
+				{
+					for(int i = 0; i < num1; i++)
+					{
+						n4 += classes4[i];
+					}
+					System.out.printf("Your 09th gd unwieghted GPA is %.1f or " + n4/num9, n1/num9);
+				}
+				if (select2.equals("a"))
+				{
+					for(int i = 0; i < num1; i++)
+					{
+						n4 += classes4[i];
+					}
+						System.out.printf("\nYour 09th gd   wieghted GPA is %.1f or " + (n4+num15)/num9, (n4+num15)/num9);
+				}	
+			}
+		}
+		if(num4>=(4*num5) || num4>=((4*num5)-1))
+		{
+			if(select3.equals("a"))
+			{
+				if(select7.equals("a"))
+				{
+					if (select1.equals("a"))
+					{
+						System.out.printf("Your 11-12th unwieghted GPA is %.1f or " + (n1+n2)/(num1+num7), (n1+n2)/(num1+num7));
+					}
+					if (select2.equals("a"))
+					{
+						for(int i = 0; i < num1; i++)
+						{
+							n2 += classes2[i];
+						}
+						System.out.printf("\nYour 11-12th   wieghted GPA is %.1f or " + (n1+num2)+(n2+num13)/(num1+num7), (n1+num2)+(n2+num13)/(num1+num7));
+					}	
+				}
+				if(select8 = kb.next("a"))
+				{
+					if (select1.equals("a"))
+					{
+						System.out.printf("Your 10-12th unwieghted GPA is %.1f or " + (n1+n2+n3)/(num1+num7+num8), (n1+n2+n3)/(num1+num7+num8));
+					}
+					if (select2.equals("a"))
+					{
+						for(int i = 0; i < num1; i++)
+						{
+							n2 += classes2[i];
+						}
+						System.out.printf("\nYour 10-12th   wieghted GPA is %.1f or " + (n1+num2)+(n2+num13)+(n3+num14)/(num1+num7+num8), (n1+num2)+(n2+num13)+(n3+num14)/(num1+num7+num8));
+					}
+				}
+			}
+		}
+		if(num4>=(3*num5) || num4>=((3*num5)-1))
+		{
+			if((select4.equals("a") || select3.equals("a")))
+			{
+				if (select1.equals("a"))
+				{
+					System.out.printf("Your 10-11th unwieghted GPA is %.1f or " + (n2+n3)/(num7+num8), (n2+n3)/(num7+num8));
+				}
+				if (select2.equals("a"))
+				{
+					for(int i = 0; i < num1; i++)
+					{
+						n2 += classes2[i];
+					}
+					System.out.printf("\nYour 10-12th   wieghted GPA is %.1f or " + (n2+num13)+(n3+num14)/(num7+num8), (n2+num13)+(n3+num14)/(num7+num8));
+				}
+			}
+		}
+		if(num4>=(3*num5) || num4>=((3*num5)-1))
+		{
+			if((select5.equals("a") || select4.equals("a")))
+			{
+				
+			}
+		}
 	}
 		
 	public static double calcPoints(double m)
@@ -202,7 +332,7 @@ public class gpaGeneral
 		for(int i = 0; i < num; i++)
 		{
 			double qwerty = kb.nextDouble();
-			classes [i] = qwerty;
+			classes[i] = qwerty;
 		}
 	}
 	
