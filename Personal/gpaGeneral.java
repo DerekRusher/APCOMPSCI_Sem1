@@ -4,7 +4,7 @@ public class gpaGeneral
 	static boolean b1, b2;
 	static double[] classes1, classes2, classes3, classes4;
 	static int num1, num2, num3, num4, num5, num6, num7, num8, num9, num10, num11, num13, num14, num15;
-	static double n1 = 0, n2 = 0; n3 = 0; n4 = 0; n5 = 0; n6 = 0; n7 = 0; n8 = 0; n9 = 0;
+	static double n1 = 0, n2 = 0, n3 = 0, n4 = 0, n5 = 0, n6 = 0, n7 = 0, n8 = 0, n9 = 0;
 	static String select1, select2, select3, select4, select5, select6, select7, select8, select9, select10, select11, select12;
 	public static void main(String[]args){
 		Scanner kb = new Scanner(System.in);
@@ -141,7 +141,7 @@ public class gpaGeneral
 				select8 = kb.next();
 			}
 		}
-		if(num4>=(3*num5) || num4>=((3*num5)-1))
+		if((num4>=(3*num5) || num4>=((3*num5)-1)) && !(select4.equals(null)))
 		{
 			if((select4.equals("a") || select3.equals("a")))
 			{
@@ -149,7 +149,7 @@ public class gpaGeneral
 				select9 = kb.next();
 			}
 		}
-		if(num4>=(3*num5) || num4>=((3*num5)-1))
+		if((num4>=(3*num5) || num4>=((3*num5)-1) && !(select4.equals(null)) && !(select5.equals(null))))
 		{
 			if((select5.equals("a") || select4.equals("a")))
 			{
@@ -266,7 +266,7 @@ public class gpaGeneral
 						System.out.printf("\nYour 11-12th   wieghted GPA is %.1f or " + (n1+num2)+(n2+num13)/(num1+num7), (n1+num2)+(n2+num13)/(num1+num7));
 					}	
 				}
-				if(select8 = kb.next("a"))
+				if(select8.equals("a"))
 				{
 					if (select1.equals("a"))
 					{
