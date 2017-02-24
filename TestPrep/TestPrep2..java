@@ -789,9 +789,327 @@ value, but subject to input from the parameter, and is initialized in the Person
 constructor. Student objects should forward the parameter for age into the constructor for Person. 
 
 /*********************************************************************************************************/
+Questions 13 - 22 refer to the Loan, CreditCard, and FinanceCar classes defined below:
+
+	public class Loan
+	{
+		private double principal;
+		private double interestRate;
+		private double total;
+
+
+		public Loan()
+		{
+			principal = 0.0;
+			interestRate = 0.0;
+			total = 0.0;
+		}
+
+
+		public Loan(double p, double rate)
+		{
+		   principal = p;
+		   interestRate = rate;
+		   total = p;
+		}
+
+
+		public void payment(double p)
+		{  
+			total -= p; 
+		}
+
+
+		public void Fees(double amt) //Add fees to the total
+		{ 
+			/*  implementation not shown  */  
+		}
+
+
+		public double amountOwed()
+		{   
+			return total;   
+		}
+	}
+
+
+	public class CreditCard extends Loan
+	{
+		public CreditCard()
+		{   
+			/* implementation not shown */  
+		}
+		
+		public CreditCard(double principal, double rate)
+		{   
+			/* implementation not shown */   
+		}
+	}
+
+
+	public class FinanceCar extends Loan
+	{
+		private static final double GAP = 1000.0;
+		private double value;
+
+
+		public FinanceCar(double p, double rate, double v)
+		{  
+			/*  implementation not shown */  
+		}
+
+
+	   /** GAP insurance is added to the total if the loan
+		*  total exceeds the value of the car */
+		public void needGap()
+		{
+			/* implementation not shown */
+		}
+	}
+
+
+/*********************************************************************************************************/
+
+Question_13
+Of the methods shown, how many different non-constructor methods can be invoked by a FinanceCar object? 
+
+
+	A.	1
+	B.	2
+	C.	3
+	D.//4
+	E.	5
+	
+//Can implement needGap, payment, fees, and amountOwed.
+
+/*********************************************************************************************************/
+
+Question_14
+Which of the following correctly implements the default constructor of the CreditCard class?
+
+
+	I.	super();
+		principal = 0
+		interestRate = 0;
+		total = 0;
+ 
+	II.	super(p, r);
+		total = p;
+
+
+	III.super();
+
+
+	A.	II only
+	B.	I and II only
+	C.	II and III only
+	D.//III only
+	E.	I, II, and III
+	
+//II invokes the non-default constructor, making it wrong. Therefor only D is left.
 
 
 
 /*********************************************************************************************************/
 
+Question_15
+Which is a correct implementation of the constructor with parameters in the FinanceCar class? 
 
+
+	A.	principal = p;
+		interestRate = rate;
+		value = v;
+
+
+	B.	principal = super.amountOwed();
+		interestRate = rate;
+		v = value;
+
+
+	C.//super(p, rate);
+	  //value = v;
+
+
+	D.	super(p, rate, v);
+		 
+	E.	super();
+		value = v;
+		
+//A and B dont implement the constructor correctly becuase they enter in the variables manually
+//instead of calling the superclass. E has no parameters, and D has too many parameters, thus
+//C is the only answer choice left.
+
+
+
+/*********************************************************************************************************/
+
+Question_16
+Which is a correct implementation of the CreditCard constructor? 
+
+
+	A.	super();
+		principal = p;
+		interestRate = rate;
+
+
+	B.	super(principal, rate);
+
+
+	C.	super(principal, rate);
+		value = v;
+
+
+	D.//super();
+
+
+	E.	super(principal)
+		interestRate = rate;
+
+//A should use the non-default constructor, and B, C, and E all use variables that have no values,
+//so D is the only response left.		
+
+/*********************************************************************************************************/
+
+Question_17
+Which is the correct implementation of the code for the needGap() method in the FinanceCar class? 
+
+
+	A.	super.Fees(GAP);
+
+
+	B.	if(super.amountOwed() > value)
+		{
+			Fees(GAP);
+		}
+
+
+	C.	if(super.principal > value)
+		{
+			Fees(GAP);
+		}
+
+
+	D.	GAP += amount;
+		if(super.amountOwed() > value)
+		{
+			Fees(GAP);
+		}
+
+
+	E.//if(super.amountOwed() > value)
+	  //{
+	  //	super.Fees(GAP);
+	  //} 
+		
+//A is wrong becuase even if the car is more then the loan, that code will run. Finance Car must make 
+//a call to the super for both fees and amountOwed, so B and C are eliminated, and D is out becuase
+//amount doesnt even exist, leaving E to be the answer.
+
+/********************************************************************************************************/
+
+Question_18
+Consider the following declarations that will occur in a driver file 
+
+
+	Loan l = new Loan(5000, 0.03);
+	Loan c = new CreditCard(2000, 0.085);
+	Loan fC = new FinanceCar(20000, 0.059, 25000);
+
+
+Which method call will cause an error? 
+
+
+	A.	c.payment(250);
+	B.	l.Fees(40);
+	C.	fC.Fees(GAP);
+	D.//((FinanceCar)(fC)).needGap();
+	E.	c.payment(100);
+	
+//A, B, C, and E shouldnt cause errors so D is the only one left. I dont know what D calls,
+//but process of elimination ftw.
+
+/********************************************************************************************************/
+
+Question_19
+Which of the following from our Loan, CreditCard, and FinanceCar classes is an example of polymorphism?
+
+
+	A.	amountOwed()
+	B.	payment()
+	C.	Fees()
+	D.//The constructors
+	E.	Any call to super()
+	
+//super calls need to refer to another class, so E is wrong. A, B, and C are either all true or
+//all false because they are all in the Loan class and all can be accessed by CreditCard and
+//FinanceCar, and becuase only 1 answer is correct, A, B, and C are out. This leaves D to be
+//the answer.
+
+/********************************************************************************************************/
+
+Question_20
+The constructor in FinanceCar contains a call to super() with the parameters p and rate. 
+When Java decides to use Loan’s constructor with parameters at compile time, this is an example of... 
+
+
+	A.	Method overloading
+	B.//Method overriding
+	C.	Downcasting
+	D.	Dynamic binding
+	E.	Static binding
+	
+//I only know what B means, and seeing as the parameters for Loan are overridden, B seems correct.
+
+/********************************************************************************************************/
+
+Question_21
+Consider the following declarations and method calls
+
+
+	Loan ln = new Loan(5000, 0.03);
+	FinanceCar fC = new FinanceCar(20000, 0.059, 25000);
+
+
+	ln.Fees(40);
+	fC.needGap();
+
+
+There are 2 calls to Fees() above - one in the Loan object ln and one inside of the 
+needGap() method called in the FinanceCar object fC. Java decides which 
+implementation of the needGap() method to use at run time. This is an example of…
+
+
+	A.	Method overloading
+	B.	Method overriding
+	C.	Downcasting
+	D.//Dynamic binding
+	E.	Static binding
+	
+//I only know what B means, and seeing as this has nothing to do with being overridden, B seems wrong.
+//D sounds correct becuase dynamic means while moving or in movement and at run time Java makes
+//the decision, sounding like D is correct.
+
+/********************************************************************************************************/
+
+Question_22
+Consider the following declarations.
+
+
+	Loan l = new Loan(5000, 0.03);
+	Loan c = new CreditCard(2000, 0.085);
+	FinanceCar fC = new FinanceCar(20000, 0.059, 25000);
+
+
+Which of the above will cause a ClassCastException? 
+
+
+	A.	((Loan)c).needGap();
+	B.	((CreditCard)c).amountOwed();
+	C.//((CreditCard)fC).payment(250);
+	D.	((Loan)fC).Fees(40);
+		((FinanceCar)fC).amountOwed(); 
+		
+//I have no idea what a ClassCast is, but a CreditCard class shouldnt be able to become a 
+//FinanceCar class, so C seems wrong.
+
+/********************************************************************************************************/
