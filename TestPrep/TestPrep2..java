@@ -877,10 +877,14 @@ Of the methods shown, how many different non-constructor methods can be invoked 
 	A.	1
 	B.	2
 	C.	3
-	D.//4
+//	D.//4
 	E.	5
 	
 //Can implement needGap, payment, fees, and amountOwed.
+
+Answer: D
+payment(), Fees() and amountOwed() are all inherited from the superclass, 
+plus the needGap() method, which is defined in FinanceCar. 
 
 /*********************************************************************************************************/
 
@@ -903,12 +907,15 @@ Which of the following correctly implements the default constructor of the Credi
 	A.	II only
 	B.	I and II only
 	C.	II and III only
-	D.//III only
+//	D.//III only
 	E.	I, II, and III
 	
 //II invokes the non-default constructor, making it wrong. Therefor only D is left.
 
-
+Answer: D
+You do not have access to the instance variables principal, interestRate, or total in 
+the CreditCard class. Since nothing has changed, you don’t need to write a new default 
+constructor. However, the correct implementation would be just to call the super. 
 
 /*********************************************************************************************************/
 
@@ -926,7 +933,7 @@ Which is a correct implementation of the constructor with parameters in the Fina
 		v = value;
 
 
-	C.//super(p, rate);
+//	C.//super(p, rate);
 	  //value = v;
 
 
@@ -939,7 +946,10 @@ Which is a correct implementation of the constructor with parameters in the Fina
 //instead of calling the superclass. E has no parameters, and D has too many parameters, thus
 //C is the only answer choice left.
 
-
+Answer: C
+The constructor in the superclass Loan asks for principal and interest rate as 
+parameters, so those must be passed in the call to super(). Then, we have the third 
+parameter v, which carries the value of the Car, which we pass into our variable value.
 
 /*********************************************************************************************************/
 
