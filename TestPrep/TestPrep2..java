@@ -516,3 +516,282 @@ perform() with “Juggles while walking and flipping a tight rope”.
 
 /*********************************************************************************************************/
 
+Question_09
+Consider the following code segment and two classes
+
+
+	Aardvark andy = new Aardvark();
+	System.out.println(andy.getAnimalType());
+
+
+	public class Animal
+	{
+	   private String animalType;
+	   public Animal()
+	   {
+		   animalType = "Unknown";
+	   }
+	   public String getAnimalType()
+	   {
+		   return animalType;
+	   }
+	}
+
+
+	public class Aardvark extends Animal
+	{
+	}
+
+
+Which of the following are true statements about the Aardvark class?
+
+
+I.	Aardvark is a superclass of Animal.
+II.	Aardvark will have the exact same features and behaviors as the animal class
+III.Aardvark objects have no access to any methods since the class declaration is empty. 
+
+
+	A.	I only
+//	B.//II only
+	C.	III only
+	D.	I and II
+	E.	I and III
+	
+//Aardvark is a subclass of Animal, therefor I is wrong. III is wrong becuase Aardvark can only
+//plug into one constructor for Animal, which makes II correct.
+
+Answer: B 
+Choice I is wrong because Aardvark is a subclass of Animal, not a superclass. 
+Choice III is wrong because Aardvark will have access to all methods of Animal via 
+inheritance. Choice II is the only correct statement. Since Aardvark is an empty class 
+which inherits from Animal, an Aardvark object will have the same exact behavior as an 
+Animal object. Remember, Aardvark did not re-define or newly-define any methods. 
+
+/*********************************************************************************************************/
+
+Use the following classes for Questions 10 and 11
+
+
+	class Person
+	{
+	   public int age;
+
+
+	   public Person()
+	   {
+		   System.out.println("Person Constructor");
+		   age = 17;
+	   }
+
+
+	   public int getAge()
+	   {
+		   return age;
+	   }
+	}
+
+
+	public class Student extends Person
+	{
+	   public int grade;
+	   public Student(int g)
+	   {
+		   grade = g;
+		   System.out.println("Student Constructor");
+	   }
+	   public int getGrade()
+	   {
+		   return grade;
+	   }
+	   public void showData()
+	   {
+		   System.out.println("Student's Grade is " + grade);
+		   System.out.println("Student's Age is " + age);
+	   }
+	   public static void main(String[]args)
+	   {
+		   Student tom = new Student(12);
+		   Person sue = new Person();
+		   tom.showData();
+	   }
+	}
+/*********************************************************************************************************/
+
+Question_10
+Considering the following code segment…
+
+
+	Student tom = new Student(12);
+	Person sue = new Person();
+	tom.showData();
+
+
+...what are the first 2 lines of output? 
+
+
+//	A.//Person Constructor
+	  //Student Constructor
+		 
+	B.	Student Constructor
+		Person Constructor
+
+
+	C.	Person Constructor
+		Person Constructor
+
+
+	D.	Student Constructor
+		Student Constructor
+
+
+	E.	No Output. 
+		This program do does not compile. 
+		
+//The code would run through the student subclass, which relies on the superclass' constructor first,
+//thus Person constructor would run first, then Student constructor would run after. All other lines
+//come after.
+
+Answer: A
+The code segment shows the creation of a Student object, followed by the creation 
+of a Person object. Many students would then conclude B would be the answer. What 
+must be remembered is that anytime an object of a subclass is created, the 
+superclass constructor is called first. Consider this: Before you can be enrolled as a 
+student, you must first be born as a person. 
+
+/*********************************************************************************************************/
+
+Question_11
+Considering the following code segment…
+
+
+	Student tom = new Student(12);
+	Person sue = new Person();
+	tom.showData();
+
+
+...what are the last 2 lines of output?
+
+
+//	A.	Student’s Grade is 12
+	  /*Student’s Age is 17*/
+
+
+	B.//Student’s Age is 12
+	  //Student’s Grade is 17
+
+
+	C.	Student’s Age is 17
+		Student’s Grade is 12 
+
+
+	D.	Student Constructor
+		Student’s Age is 17
+
+
+	E.	Student Constructor
+		Student’s Grade is 12
+		
+//The declaration of Student tom gives a grade of 12, printed first, and the Person
+//constructor gives an age of 17, printed second in the showData class, and as showData
+//is run last, those two lines appear last and B must be the answer.
+
+Answer: A
+Here, we know that tom.showData() is the last thing that is called, and that showData() 
+has 2 print statements. Therefore, the last 2 lines of output are going to be the grade 
+and age lines from showData(). We put in a parameter of 12 in the tom object, which 
+gives is a grade of 12, and all Person objects get an age of 17. Therefore, A is the 
+only answer that prints the Grade and Age in order, and has the correct numbers for each. 
+
+Why I got it wrong: Has the correct explanation, simply selected the wrong answer in a moment of
+					temporary insanity.
+
+/*********************************************************************************************************/
+
+Question_12
+Considering the following code segment and two classes.
+
+
+	Person sue = new Person(32);
+	Student tom = new Student(12, 25);
+	sue.showData();
+	tom.showData();
+
+
+	class Person
+	{
+	   public int age;
+
+
+	   public Person(int a)
+	   {
+		   System.out.println("Person Constructor");
+		   age = a;
+	   }
+
+
+	   public int getAge()
+	   {
+		   return age;
+	   }
+	   public void showData()
+	   {
+		   System.out.println("Student's Age is " + age);
+	   }
+	}
+
+
+	public class Student extends Person
+	{
+	   public int grade;
+	   public Student(int g, int a)
+	   {
+		   super(a);
+		   grade = g;
+		   System.out.println("Student Constructor");
+	   }
+	   public int getGrade()
+	   {
+		   return grade;
+	   }
+	   public void showData()
+	   {
+		   super.showData();
+		   System.out.println("Student's Grade is " + grade);
+	   }
+	}
+
+
+What are the last 2 lines of output? 
+
+
+	A.	Student’s age is 32
+		Student’s age is 25
+		 
+	B.	Student’s Age is 25
+		Student’s Age is 32
+
+	C.	Student’s Grade is 12
+		Student’s Age is 25
+		 
+//	D.//Student’s Age is 25
+	  //Student’s Grade is 12
+
+	E.	No Output. 
+		This program does not compile.
+		
+//Tom's show data is what prints last, and seeing as the call to super comes first and the
+//data is entered and transfered correctly, Age comes first at 25 and grade comes second at
+//12, making D the correct answer.
+
+Answer: D
+This is similar to 10 and 11. The difference is that The variable age is no longer a set 
+value, but subject to input from the parameter, and is initialized in the Person 
+constructor. Student objects should forward the parameter for age into the constructor for Person. 
+
+/*********************************************************************************************************/
+
+
+
+/*********************************************************************************************************/
+
+
