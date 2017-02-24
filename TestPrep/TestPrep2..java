@@ -31,9 +31,14 @@ What is the relationship between class Rumba and class Mambo?
 	B.	Composition only
 	C.	Both inheritance and composition
 	D.	Polymorphism
-	E.//There is no class relationship between Rumba and Mambo. 
+//	E.//There is no class relationship between Rumba and Mambo. 
 	
 //Neither class extends the other nor calls upon on even refers to the other.
+
+Answer: E
+Neither class extends the other so there is no inheritance. 
+Neither class contains an object of the other class so there is no composition.
+  Polymorphism requires either inheritance or an interface. Neither is present. 
 
 /*********************************************************************************************************/
 
@@ -82,10 +87,21 @@ Mambo so that the desired output is achieved?
 	B.	II only
 	C.//III only
 	D.	I and II
-	E.	II and III
+//	E.	II and III
 	
 //Rumba.super() calls upon the super of Rumba, which doesnt exist, and II only runs the 
 //"executing the Rumba constructor" line once total. III is the only one left.
+
+Answer: E
+Choice I is no good because a constructor is an object method (non-static method). 
+It cannot be called as a class method (static method). Choices II and III both work 
+and do the exact same thing. While choice III explicitly calls the superclass 
+constructor with super, choice II also words because the superclass constructor is 
+automatically called. The super keyword is only necessary when the superclass 
+constructor has parameters.  
+
+Why I got it wrong: super only needs to be called if data is being transfered.
+					no data was transfered, thus II and III work.
 	
 /*********************************************************************************************************/
 
@@ -163,10 +179,23 @@ of the following methods must be defined in the Equestrian class?
 	B.	II only 
 	C.	III, IV, and V
 	D.	I and II
-	E.  I and IV
+//	E.  I and IV
 	
 //act, entrance, preformance, and exit all are already declared in CircusPerformer and cannot be changed.
 //There must be a constructor to inherit these methods so I is the only necissary class. 
+
+Answer: E
+The term “defined” is confusing in this question. It really means that these methods 
+have to be redefined or overridden in the subclass Equestrian. The Equestrian class 
+would need its own constructor and performance method. Since there is no default 
+constructor for CircusPerfomer objects, subclasses need to pass the performerName 
+and actName data into the constructor in the super. In addition, the description for 
+CircusPerformer says that it “rides ponies over the obstacles”, meaning it does more 
+than just “Runs in circles”. For this reason, we have to override the performance 
+method to print “rides ponies of the obstacles”.
+
+Why I got it wrong: All classes can be overwritten, not just abstract classes. Abstract only
+					means the class HAS to be written over.
 
 /*********************************************************************************************************/
 
@@ -198,13 +227,20 @@ initialized?
 
 
 	A.	I only 
-	B.//II only
+//	B.//II only
 	C.	III only 
 	D.	I and II only
 	E.	I and III only
 	
 //CircusPerformer needs perameters, and only aN and pN actually contain things at this point.
 
+Answer: B
+I is incorrect, because there is no default constructor for CircusPerformer objects. 
+Therefore, the call to super() in the Equestrian subclass would have to include 
+parameter data. You could get  away with setting values directly on performerName 
+and actName, because they were not declared private in the CircusPerformer 
+superclass. III is incorrect, because you have no variables performerName and 
+actName in the Equestrian constructor. 
 
 /*********************************************************************************************************/
 
@@ -252,12 +288,16 @@ What is printed as a result of executing the code segment?
 		C.	Walks and flips on the tight rope
 
 
-		D.//Compile error message indicating that there is a problem with the constructor. 
+//		D.//Compile error message indicating that there is a problem with the constructor. 
 
 
 		E.	Compile error message indicating that there is a problem with the act method. 
 		
 //The constructor is never made for the TightRopeWalker, thus nothing else can happen.
+
+Answer: D
+TightRopeWalker does not have a constructor that will send the necessary 
+performerName and actName data to the constructor in the superclass CircusPerformer. 
 
 /*********************************************************************************************************/
 
@@ -296,7 +336,7 @@ joe.act();
 What is printed as a result of executing the code segment?
 
 
-	A.//Starts from tight rope platform
+//	A.//Starts from tight rope platform
 	  //Walks and flips on the tight rope
 	  //Exits from tight rope platform
 
@@ -316,6 +356,11 @@ What is printed as a result of executing the code segment?
 	
 //The call to a new object is fine, the call to act() is fine, and B and C require some things to be wrong
 //and some things to be right, not possible with this set up. A is left.
+
+Answer: A
+The only difference between this and Question_05 is that there is a proper 
+constructor in TightRopeWalker has a proper constructor that passes the necessary 
+information to the superclass. 
 
 /*********************************************************************************************************/
 
@@ -361,7 +406,7 @@ kathy.act();
 What is printed as a result of executing the code segment?
 
 
-	A.//Starts from tight rope platform
+//	A.//Starts from tight rope platform
 	  //Walks and flips on the tight rope
 	  //Exits from tight rope platform
 
@@ -382,6 +427,10 @@ What is printed as a result of executing the code segment?
 //The call to a new object is fine, the call to act() is fine, and B and C require some things to be wrong
 //and some things to be right, not possible with this set up. A is left.
 
+Answer: A 
+HighWireJuggler neither re-defines nor newly-defines any methods. All methods will 
+be inherited from TightRopeWalker or CircusPerformer. This means that HighWireJuggler 
+objects will behave exactly like TightRopeWalker objects and have the same output. 
 
 /*********************************************************************************************************/
 
@@ -444,7 +493,7 @@ What is printed as a result of executing the code segment?
 		Exits from ring center
 
 
-	C.//Starts from tight rope platform
+//	C.//Starts from tight rope platform
 	  //Juggles wile walking and flipping a tight rope
 	  //Exits from tight rope platform
 
@@ -454,7 +503,16 @@ What is printed as a result of executing the code segment?
 
 	E.	Compile error message indicating that there is a problem with the act method. 
 	
-//The call to a new object is fine, the call to act() is fine, and B and C require some things to be wrong
-//and some things to be right, not possible with this set up. A is left.
+//The call to a new object is fine, the call to act() is fine, and B requires some things to be wrong
+//and some things to be right, not possible with this set up. A would be true if there was no change
+//from 7. C is left.
+
+Question_08
+Answer: C
+There is only one significant difference between this and Question_07, and that is 
+that HighWireJuggler now re-defines the performance() method. Therefore, all 
+HighWireJuggler objects will enter() and exit() like a TightRopeWalker, but will 
+perform() with “Juggles while walking and flipping a tight rope”.
 
 /*********************************************************************************************************/
+
