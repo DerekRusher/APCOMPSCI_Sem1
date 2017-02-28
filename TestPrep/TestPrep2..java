@@ -962,7 +962,7 @@ Which is a correct implementation of the CreditCard constructor?
 		interestRate = rate;
 
 
-	B.	super(principal, rate);
+//	B.	super(principal, rate);
 
 
 	C.	super(principal, rate);
@@ -976,7 +976,17 @@ Which is a correct implementation of the CreditCard constructor?
 		interestRate = rate;
 
 //A should use the non-default constructor, and B, C, and E all use variables that have no values,
-//so D is the only response left.		
+//so D is the only response left.
+
+Answer: B
+For now, CreditCard has the exact same behaviors as the Loan class. The only reason 
+that the constructors are overridden is that they are passing data to the superclass. 
+The constructor in Loan calls for principal and interest rate parameters, which must 
+be passed to the super. 		
+
+Why I got it wrong: I should not have assumed there were no values being imputted.
+					If the default constructor is not being used, B is the correct
+					answer, but I thought the default constructor was being used.
 
 /*********************************************************************************************************/
 
@@ -987,10 +997,10 @@ Which is the correct implementation of the code for the needGap() method in the 
 	A.	super.Fees(GAP);
 
 
-	B.	if(super.amountOwed() > value)
-		{
-			Fees(GAP);
-		}
+//	B.	if(super.amountOwed() > value)
+//		{
+//			Fees(GAP);
+//		}
 
 
 	C.	if(super.principal > value)
@@ -1015,6 +1025,14 @@ Which is the correct implementation of the code for the needGap() method in the 
 //a call to the super for both fees and amountOwed, so B and C are eliminated, and D is out becuase
 //amount doesnt even exist, leaving E to be the answer.
 
+Answer: B
+In order to add fees to the total owed, we need to call the Fees() method, which is inherited 
+from the superclass. But first we check to see if the value of the car (variable value in FinanceCar) 
+is greater than the total amount we owe (variable total in Loan). 
+If this is the case, we add the value of GAP to our loan total by calling super.Fees(GAP). 
+
+Why I got it wrong:   
+
 /********************************************************************************************************/
 
 Question_18
@@ -1031,12 +1049,22 @@ Which method call will cause an error?
 
 	A.	c.payment(250);
 	B.	l.Fees(40);
-	C.	fC.Fees(GAP);
+//	C.	fC.Fees(GAP);
 	D.//((FinanceCar)(fC)).needGap();
 	E.	c.payment(100);
 	
 //A, B, C, and E shouldnt cause errors so D is the only one left. I dont know what D calls,
 //but process of elimination ftw.
+
+Answer: C
+The calls in A, B, and E are all correct, as they are called in the right place, 
+and contain the correct parameters. C is incorrect, because fC is a Loan object, 
+and does not have access to the variable GAP. D is correct, because fC is first 
+cast to a FinanceCar object, which has access to the needGAP() method. 
+
+Why I got it wrong: I didnt realise D was casting the object to a new object type,
+					which was necessary for calling needGAP(), a call outside of the
+					Loan object.
 
 /********************************************************************************************************/
 
@@ -1047,13 +1075,18 @@ Which of the following from our Loan, CreditCard, and FinanceCar classes is an e
 	A.	amountOwed()
 	B.	payment()
 	C.	Fees()
-	D.//The constructors
+//	D.//The constructors
 	E.	Any call to super()
 	
 //super calls need to refer to another class, so E is wrong. A, B, and C are either all true or
 //all false because they are all in the Loan class and all can be accessed by CreditCard and
 //FinanceCar, and becuase only 1 answer is correct, A, B, and C are out. This leaves D to be
 //the answer.
+
+Answer: D
+The constructors are overridden, and therefore take on different forms. 
+We learned this in Lesson_12. The payment(), Fees(), and amountOwed() 
+methods share the same implementation in all 3 classes. 
 
 /********************************************************************************************************/
 
@@ -1066,9 +1099,16 @@ When Java decides to use Loan’s constructor with parameters at compile time, t
 	B.//Method overriding
 	C.	Downcasting
 	D.	Dynamic binding
-	E.	Static binding
+//	E.	Static binding
 	
 //I only know what B means, and seeing as the parameters for Loan are overridden, B seems correct.
+
+Answer: E
+We learned the difference between static and dynamic binding in Lesson 13.1. 
+Since the constructors are overloaded in Loan, Java will decide which constructor 
+to use at compile time based on the parameters used. 
+
+Why I got it wrong: I did not know what most of the terms meant.
 
 /********************************************************************************************************/
 
@@ -1092,12 +1132,17 @@ implementation of the needGap() method to use at run time. This is an example of
 	A.	Method overloading
 	B.	Method overriding
 	C.	Downcasting
-	D.//Dynamic binding
+//	D.//Dynamic binding
 	E.	Static binding
 	
 //I only know what B means, and seeing as this has nothing to do with being overridden, B seems wrong.
 //D sounds correct becuase dynamic means while moving or in movement and at run time Java makes
 //the decision, sounding like D is correct.
+
+Answer: D
+We learned the difference between static and dynamic binding in Lesson 13.1. 
+Since the implementation of the Fees() method is the same in each class and 
+not overridden, Java must decide at runtime which implementation to use. 
 
 /********************************************************************************************************/
 
@@ -1115,11 +1160,16 @@ Which of the above will cause a ClassCastException?
 
 	A.	((Loan)c).needGap();
 	B.	((CreditCard)c).amountOwed();
-	C.//((CreditCard)fC).payment(250);
+//	C.//((CreditCard)fC).payment(250);
 	D.	((Loan)fC).Fees(40);
 		((FinanceCar)fC).amountOwed(); 
 		
 //I have no idea what a ClassCast is, but a CreditCard class shouldnt be able to become a 
 //FinanceCar class, so C seems wrong.
+
+Answer: C
+Since fC is a FinanceCar object and not a CreditCard object, 
+you cannot cast an object to a type of an unrelated class. 
+All of the other casts are valid. 
 
 /********************************************************************************************************/
