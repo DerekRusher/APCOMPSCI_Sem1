@@ -1031,7 +1031,7 @@ from the superclass. But first we check to see if the value of the car (variable
 is greater than the total amount we owe (variable total in Loan). 
 If this is the case, we add the value of GAP to our loan total by calling super.Fees(GAP). 
 
-Why I got it wrong:   
+Why I got it wrong: E is extraneous
 
 /********************************************************************************************************/
 
