@@ -4,6 +4,7 @@ public class Toyota implements Location
 
 	public Toyota(String a)
 	{
+		loc = new double[2];
 		String[] loc1 = (a.split(", "));
 		loc[0] = Double.parseDouble(loc1[0]);
 		loc[1] = Double.parseDouble(loc1[1]);
