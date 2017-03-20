@@ -29,11 +29,18 @@ Which of the following are reasons why the program does not compile?
 	III.There is no constructor defined in interface CircusPerformer. 
 
 
-	A.	I only
+//	A.	I only
 	B.//II only
 	C.	III only
 	D.	I and II only 
 	E.	I, II, and III
+	
+Answer:  A
+This is one of those questions that you need to read carefully. It does not say “Which of the following 
+are true?”, it asks which one is the reason why the program doesn’t compile. Answers II and III may be 
+true, but they are not the reason that the program doesn’t compile. The program will not compile, 
+because it attempts to instantiate an object of the CircusPerformer class which is an Interface. 
+Remember that an Interface cannot be instantiated under any circumstances. 
 	
 /*********************************************************************************************************/
 
@@ -99,7 +106,7 @@ What is printed as a result of executing the code segment?
 	D.	A compile error message, due to implementing a method that was not declared in the interface. 
 
 
-	E.//A compile error message, due to not implementing a method that was declared in the interface. 
+//	E.//A compile error message, due to not implementing a method that was declared in the interface. 
 
 /*********************************************************************************************************/	
 
@@ -171,9 +178,16 @@ What is printed as a result of executing the code segment?
 		Ivan flips on the trapeze
 		Ivan lands in safety net
 		 
-	D.	A compile error message, due to improperly using an attribute (instance variable) in the interface. Public Stri
+//	D.	A compile error message, due to improperly using an attribute (instance variable) in the interface. Public Stri
 		 
 	E.	A compile error message, due to implementing a method that was not declared in the interface.  
+	
+Answer:  D
+Interfaces usually do not have attributes. If they do, the attributes must be final and initialized in the
+declaration. Another issue is the keyword private, which is never allowed in an interface. Everything 
+in an interface is both public and abstract. If you think about it logically, private members in an 
+interface would be inaccessible to a class that implements the interface, while the class would still be 
+required to implement them (abstraction).
 	
 /*********************************************************************************************************/
 
@@ -239,7 +253,7 @@ What is printed as a result of executing the code segment?
 		Ivan lands in safety net
 
 
-	C.//The Great Ivan parades with performers
+//	C.//The Great Ivan parades with performers
 	  //The Great Ivan flips on the trapeze
 	  //The Great Ivan lands in safety net
 
@@ -326,7 +340,14 @@ Which of the following correctly implements the Dance interface?
 	B.	ChaCha only
 	C.	Waltz and ChaCha only
 	D.	ChaCha and Tango only
-	E.	Waltz, ChaCha, and Tango
+//	E.	Waltz, ChaCha, and Tango
+
+Answer:  E
+All three methods properly implement the Dance interface. The ChaCha class does the bare minimum, 
+implementing both abstract methods from Dance. The Waltz method also implements both methods, 
+and then adds a constructor  and an attribute. Remember, the minimum requirement is to implement 
+all abstract methods from the interface. Once that is done, there is no problem adding constructors, 
+extra methods, or attributes. 
 
 /*********************************************************************************************************/
 	
@@ -403,7 +424,7 @@ Subclass-3
 	}
 
 
-	A.//Subclass-1 only
+//	A.//Subclass-1 only
 	B.	Subclass-2 only
 	C.	Subclass-3 only
 	D.	Subclass-2 and Subclass-3 only
@@ -483,14 +504,26 @@ What is true about the design of the previously shown program code?
 	II.	The Performer class is used for greater program writing efficiency
 
 
-	III.The Performer abstract class is necessary for using polymorphic methods. 
+	III.The Performer class is necessary for using polymorphic methods. 
 
 
 	A.	I only
-	B.	II only
+	B.//II only
 	C.	III only
-	D.	I and II only
+//	D.	I and II only
 	E.	II and III only
+	
+
+Answer:  D
+Choice I is correct. The abstract class Performer is not absolutely necessary. Each of the three classes 
+could implement CircusShow directly. However, it would mean that the same entrance(), act(), 
+announcement(), and exit() methods would need to be duplicated in each of the three implementing classes. 
+
+Choice II is also correct. By using the abstract class Performer, the methods that Juggler, Equestrian, 
+and LionTamer all have in common only need to be written once. 
+
+Choice III is not correct. While polymorphism can be facilitated with an abstract class, 
+it can also be facilitated with an interface. 
 
 /*********************************************************************************************************/
 
@@ -522,8 +555,19 @@ Which of the three segments properly instantiates three new objects?
 	A.	I only 
 	B.	II only
 	C.	III only
-	D.	I and II only
-	E.	I, II, and III
+	D.//I and II only
+//	E.	I, II, and III
+	
+Answer:  E
+Segment I is correct. It shows the usual way objects are declared and constructed. The class identifier 
+and the constructor identifier are the same. 
+
+Segment II is also correct. The class identifier does not have to match the constructor identifier. 
+The class identifier can be the identifier of a superclass, even if the superclass is abstract. 
+
+Segment III is also correct. The class identifier can actually be the identifier of an interface provided 
+that the interface is implemented by the class (either directly or indirectly) whose constructor you are 
+using to create the object. 
 
 /*********************************************************************************************************/
 
@@ -545,8 +589,8 @@ Consider the following code segment.
 Which of the following three programming concepts is used with this program? 
 
 
-	I.	Implementing abstract interface
-	II.	Extending abstract class
+	I.	Implementing interfaces
+	II.	Extending classes
 	III.Polymorphism
 
 
@@ -554,7 +598,7 @@ Which of the following three programming concepts is used with this program?
 	B.	I and II only
 	C.	I and III only
 	D.	II and III only
-	E.	I, II, and III
+//	E.//I, II, and III
 
 /*********************************************************************************************************/
 
@@ -576,18 +620,18 @@ Consider the following code segment.
 What is printed as a result of executing the code segment? 
 
 
-	A.	Performer enters arena in parade.
-		Ringmaster announces performer entering arena.
-		Performer juggles 4 knives.
-		Performer receives flowers and leaves arena.
-		Performer enters arena in parade.
-		Ringmaster announces performer entering arena.
-		Performer rides standing on two ponies.
-		Performer receives flowers and leaves arena.
-		Performer enters arena in parade.
-		Ringmaster announces performer entering arena.
-		Performer manages five lions in a cage.
-		Performer receives flowers and leaves arena.
+//	A.//Performer enters arena in parade.
+//	  //Ringmaster announces performer entering arena.
+//	  //Performer juggles 4 knives.
+//	  //Performer receives flowers and leaves arena.
+//	  //Performer enters arena in parade.
+//	  //Ringmaster announces performer entering arena.
+//	  //Performer rides standing on two ponies.
+//	  //Performer receives flowers and leaves arena.
+//	  //Performer enters arena in parade.
+//	  //Ringmaster announces performer entering arena.
+//	  //Performer manages five lions in a cage.
+//	  //Performer receives flowers and leaves arena.
 
 
 	B.	Performer juggles 4 knives.
@@ -601,5 +645,94 @@ What is printed as a result of executing the code segment?
 	D.	A compile error, indicating the objects are incorrectly instantiated
 
 
-	E.	A compile error, indicating that generic data structures cannot be used with polymorphism. 
-	/*********************************************************************************************************/
+	E.	A compile error, indicating that generic data structures cannot be used with polymorphism.  
+/*********************************************************************************************************/
+
+Question_11
+
+Consider the compDis interface and the partial implementation of the Distance class below. 
+
+public interface compDis {
+   /**
+    * Tells the user which is greater - this object
+    * or compared. Returns -1, 0, or 1 if the implicit
+    * object (this object) is less than, equal to, or
+    * greater than compared respectively.
+    */
+   double compare(Object compared);
+}
+
+
+public class Distance implements compDis
+{
+   private String units; //holds the measurement type
+   private double distance;
+
+   public Distance()
+   {
+       /*implementation not shown*/
+   }
+   public Distance(String units, double dist)
+   {
+       /*implementation not shown*/
+   }
+   public double compare(Object o)
+   {
+       /* implementation not shown */
+   }
+
+   public String toString()
+   {
+       /* implementation not shown */
+   }
+
+   //additional methods not shown
+
+Here is a program that finds the greatest of 3 distances. 
+
+public class GreatestDistance
+{
+   /* Which object is greater: a or b? */
+   public static compDis great(compDis a, compDis b)
+   {
+       if(a.compare(b) < 0)
+           return a;
+       else
+           return b;
+   }
+
+   /* Which object is the greatest of 3 objects? */
+   public static compDis greatOf3(compDis a, compDis b, compDis c)
+   {
+       return great(great(a, b), c);
+   }
+
+   public static void main(String[] args)
+   {
+       /* code to test greatOf3 method */
+   }
+}
+
+Which are correct replacements for /* code to test greatOf3 method */?
+
+	I.	Distance d1 = new Distance("standard", 86.7);
+		Distance d2 = new Distance("metric", 98.2);
+		Distance d3 = new Distance("statndard", 54.3);
+		System.out.println("The greatest distance is " + greatOf3(d1, d2, d3));
+		 
+		 
+	II.	compDis d1 = new Distance("standard", 86.7);
+		compDis d2 = new Distance("metric", 98.2);
+		compDis d3 = new Distance("statndard", 54.3);
+		System.out.println("The greatest distance is " + greatOf3(d1, d2, d3));
+
+	III.compDis d1 = new compDis("standard", 86.7);
+		compDis d2 = new compDis("metric", 98.2);
+		compDis d3 = new compDis("statndard", 54.3);
+		System.out.println("The greatest distance is " + greatOf3(d1, d2, d3));
+
+	A.	II only
+//	B.//I and II only
+	C.	II and III only
+	D.	I and III only
+	E.	I, II, and III
