@@ -736,3 +736,32 @@ Which are correct replacements for /* code to test greatOf3 method */?
 	C.	II and III only
 	D.	I and III only
 	E.	I, II, and III
+	
+/*********************************************************************************************************/
+
+A certain interface provided by a Java package contains just a single method.
+
+	public interface SomeName
+	{
+		int method1(Ojbect ob1);
+	}
+
+A programmer adds some functionality to this interface by adding another abstract method to it, method2();
+
+	public interface SomeName
+	{
+		int method1(Ojbect ob1);
+		void method2(Ojbect ob2);
+	}
+As a result of this addition, which of the following is true?
+
+	A.	A ClassCastException will occur if ob1 and ob2 are not compatible. 
+//	B.//All classes that implement the original SomeName interface will need to be rewritten because they 
+		no longer implement SomeName
+	C.	A class that implements the original SomeName interface will need to modify its declaration as 
+		follows:
+			public class ClassName implements SomeName extends method2
+			{ ...
+	D.	SomeName will need to be changed to an abstract class and provide implementation code for method2, 
+		so that the original and upgraded versions of SomeName are compatible. 
+	E.	Any new class that implements the upgraded version of SomeName will not compile.
