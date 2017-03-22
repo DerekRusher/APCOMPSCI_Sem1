@@ -15,26 +15,23 @@ public class Magpie2
 	{
 		String response = "";
 
-		/** Exercise_01:
-		 * ==================================================
-		 * 	Code that asks the user "Say something, please."
-		 * 	if you enter nothing, or if you accidentally hit
-		 * 	enter. Think to yourself: "What is the length of
-		 * 	an empty String?" */
-
-
 		/** To be completed in Exercise_02:
 		 * 	Modify the following code to use the findKeyword
 		 * 	Method (details in "Exercise_02" below. */
-		if (statement.indexOf("no") >= 0)
+		if (findKeyword(statement, "no", -1) >= 0)
 		{
 			response = "Why so negative?";
 		}
+		
+		else if (statement.length() == 0)
+		{
+			response = "Say something, please.";
+		}
 
-		else if (statement.indexOf("mother") >= 0
-				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0
-				|| statement.indexOf("brother") >= 0)
+		else if (findKeyword(statement, "mother", 0) >= 0
+				|| findKeyword(statement, "father", 0) >= 0
+				|| findKeyword(statement, "sister", 0) >= 0
+				|| findKeyword(statement, "brother", 0) >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
@@ -58,10 +55,8 @@ public class Magpie2
 	}
 
 	/** Ex_02: The findKeyword() Method...
-	 * ========================================================= */
-	private int findKeyword(String statement, String goal, int startPos)
-	{
-		/* New String variable phrase = a more searchable version of statement.
+	
+	New String variable phrase = a more searchable version of statement.
 		 	-Use a combination of trim() and toLowerCase() modify statement.
 
 		   New int variable psn = the location of goal in phrase after
@@ -70,7 +65,38 @@ public class Magpie2
 			-->Refinement: Make sure we find goal by itself, and not part
 			of another word ("no" vs no in "know"). if you find an occurrence
 			of goal, make sure before and after aren't letters.
-
+	 * ========================================================= */
+	private int findKeyword(String statement, String goal, int startPos)
+	{
+		String phrase = statement.trim();
+		phrase = phrase.toLowerCase();
+		
+		int psn = statement.indexOf(goal, startPos);
+		System.out.println("ran findKeyword");
+		if(psn >= 0)
+		{
+			System.out.println("psn >= 0");
+			//if(psn > 0)			
+			//{
+				String before = statement.substring(psn - 1, psn);
+				System.out.println("psn > 0");
+				if(psn < statement.length())
+				{
+					System.out.println("psn < the length of statement");
+					String after = statement.substring(psn + 1, psn + 2);
+			
+					if(before.compareTo("a") > -1 && after.compareTo("z") > -1)
+					{
+						return psn;
+					}
+				}
+				else
+				{	
+					findKeyword(statement, goal, psn + 1);
+				}
+			//}
+		}
+		/* 
 			As long as psn >= 0...
 				Check if psn > 0 - there is no need to check for before at the
 				beginning of the word
