@@ -76,17 +76,17 @@ public class Magpie2
 		if(psn >= 0)
 		{
 			System.out.println("psn >= 0");
-			//if(psn > 0)			
-			//{
+			if(psn > 0)			
+			{
 				String before = statement.substring(psn - 1, psn);
 				System.out.println("psn > 0");
 				if(psn < statement.length())
 				{
 					System.out.println("psn < the length of statement");
 					String after = statement.substring(psn + 1, psn + 2);
-			
-					if(before.compareTo("a") > -1 && after.compareTo("z") > -1)
+					if(before.compareTo("a") < 1 && after.compareTo("z") > -1)
 					{
+						System.out.println("the goal word does not have any letters next to it");
 						return psn;
 					}
 				}
@@ -94,7 +94,7 @@ public class Magpie2
 				{	
 					findKeyword(statement, goal, psn + 1);
 				}
-			//}
+			}
 		}
 		/* 
 			As long as psn >= 0...
