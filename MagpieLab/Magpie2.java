@@ -28,18 +28,18 @@ public class Magpie2
 			response = "Say something, please.";
 		}
 
-		else if (findKeyword(statement, "mother", 0) >= 0
-				|| findKeyword(statement, "father", 0) >= 0
-				|| findKeyword(statement, "sister", 0) >= 0
-				|| findKeyword(statement, "brother", 0) >= 0)
+		else if (findKeyword(statement, "mother") >= 0
+				|| findKeyword(statement, "father") >= 0
+				|| findKeyword(statement, "sister") >= 0
+				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
 		
-		else if (findKeyword(statement, "cat", 0) >= 0
-				|| findKeyword(statement, "dog", 0) >= 0
-				|| findKeyword(statement, "fish", 0) >= 0
-				|| findKeyword(statement, "turtle", 0) >= 0)
+		else if (findKeyword(statement, "cat") >= 0
+				|| findKeyword(statement, "dog") >= 0
+				|| findKeyword(statement, "fish") >= 0
+				|| findKeyword(statement, "turtle") >= 0)
 		{
 			response = "Tell me more about your pet.";		
 		}
@@ -80,39 +80,39 @@ public class Magpie2
 	 * ========================================================= */
 	private int findKeyword(String statement, String goal, int startPos)
 	{
-		String phrase = statement.trim();
-		phrase = phrase.toLowerCase();
-		String before = "";
-		String after = "";
+		String phrase = statement.trim().toLowerCase();
+		String before = " ";
+		String after = " ";
 		int psn = phrase.indexOf(goal, startPos);
-		System.out.println("ran findKeyword. statement is " + statement + ", goal is " + goal + ", and startPos is " + startPos);
+		//System.out.println("ran findKeyword. statement is " + statement + ", goal is " + goal + ", and startPos is " + startPos);
 		
 		while(psn >= 0)
 		{
-			System.out.println("psn >= 0");
+			before = " ";
+			after = " ";
+			//System.out.println("psn >= 0");
 			if(psn > 0)			
 			{
 				before = phrase.substring(psn - 1, psn);
-				System.out.println("Making a \"before\" String");
-				System.out.println("before is " + before + ".");
+				//System.out.println("Making a \"before\" String");
+				//System.out.println("before is " + before + ".");
 			}
 			if(goal.length() + psn < phrase.length())
 			{
-				System.out.println("Making an \"after\" String");
+				//System.out.println("Making an \"after\" String");
 				after = phrase.substring(psn + goal.length(), psn + goal.length() + 1);
-				System.out.println("after is " + after + ".");
-
-
+				//System.out.println("after is " + after + ".");
 			}
-			
-							if((before.compareTo("a") < 0 || before.compareTo("z") > 0 )&& 
-					(after.compareTo("a") < 0 || after.compareTo("z") > 0))
-				{
-					System.out.println("the goal word does not have any letters next to it");
-					return psn;
-				}
+			//System.out.println("Before compared to A is " + before.compareTo("a") + "and \nBefore compared to Z is " + before.compareTo("z") + "and \nAfter compared to A is " + (after.compareTo("a")) + "and \nAfter compared to Z is " + after.compareTo("z"));
+			if((before.compareTo("a") < 0 || before.compareTo("z") > 0 )&& 
+				(after.compareTo("a") < 0 || after.compareTo("z") > 0))
+			{
+				//System.out.println("the goal word does not have any letters next to it");
+				return psn;
+			}
 			psn = phrase.indexOf(goal, psn+1);
 		}
+		return -1;
 		/* 
 			As long as psn >= 0...
 				Check if psn > 0 - there is no need to check for before at the
@@ -132,9 +132,6 @@ public class Magpie2
 						--return psn
 
 				Otherwise, search for goal in phrase from psn + 1 forward */
-
-		return -1;
-
 	}
 
 	/** Override - this method is used if there are only 2 parameters...*/
