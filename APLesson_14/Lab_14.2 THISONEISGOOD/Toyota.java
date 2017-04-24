@@ -1,32 +1,19 @@
 public class Toyota extends Car
 {
-	private double[] loc;
-	private int ID;
-	public Toyota(String a)
+	public Toyota()
 	{
 		super();
-		loc = new double[2];
-		String[] loc1 = (a.split(", "));
+	}
+	public Toyota(String a)
+	{
+		String[] loc1 = a.split(", ");
 		loc[0] = Double.parseDouble(loc1[0]);
 		loc[1] = Double.parseDouble(loc1[1]);
-	}
-	
-	public int getID()
-	{
-		return super.ID;
-	}
-	
-	public void move(double xm, double ym)
-	{
-		loc[0] += xm;
-		loc[1] += ym;
-	}
-	
-	public double[] getLoc()
-	{
-		return loc;
-	}
-	
-	
-	
+	}	
+	// public static void main(String[]args)
+	// {
+		// Toyota yota = new Toyota("1, 2");
+		// System.out.println("loc[0]" + (yota.getLoc())[0]);
+		// System.out.println("loc[1]" + (yota.getLoc())[1]);
+	// }
 }
