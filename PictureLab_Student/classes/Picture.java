@@ -118,9 +118,39 @@ public class Picture extends SimplePicture
     {
       for (Pixel pixelObj : rowArray)
       {
-        //pixelObj.setGreen(255-pixelObj[1]);
-		//pixelObj.setRed(255-pixelObj[0]);
-		//pixelObj.setBlue(255-pixelObj[2]);
+        pixelObj.setGreen(255-pixelObj.getGreen());
+		pixelObj.setRed(255-pixelObj.getRed());
+		pixelObj.setBlue(255-pixelObj.getBlue());
+      }
+    }
+  }
+  
+  public void greyscale()
+  {
+	Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen((pixelObj.getGreen()+pixelObj.getRed()+pixelObj.getBlue())/3);
+		pixelObj.setBlue((pixelObj.getGreen()+pixelObj.getRed()+pixelObj.getBlue())/3);
+		pixelObj.setRed((pixelObj.getGreen()+pixelObj.getRed()+pixelObj.getBlue())/3);
+      }
+    }
+  }
+  
+   public void fixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+       // pixelObj.setGreen(0);
+		//pixelObj.setRed(0);
+		pixelObj.setBlue(pixelObj.getBlue()*5/4);
+		pixelObj.setGreen(pixelObj.getGreen()*5/4);
+		pixelObj.setRed(pixelObj.getRed()*5);
       }
     }
   }
@@ -140,6 +170,74 @@ public class Picture extends SimplePicture
       {
         leftPixel = pixels[row][col];
         rightPixel = pixels[row][width - 1 - col];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    } 
+  }
+  
+  public void mirrorVerticalRtLC()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width /2 ; col++)
+      {
+        leftPixel = pixels[row][width -1 -col];
+		rightPixel = pixels[row][col];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    } 
+  }
+  
+    public void mirrorVerticalRtL()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[479-row][col];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    } 
+  }
+  
+    public void mirrorVerticalRtL2()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width; col++)
+      {
+        rightPixel = pixels[row][col];
+        leftPixel = pixels[479-row][col];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    } 
+  }
+  
+   public void D()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length -1; row++)
+    {
+      for (int col = 0; col < row; col++)
+      {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[col][row];
         rightPixel.setColor(leftPixel.getColor());
       }
     } 
@@ -251,9 +349,9 @@ public class Picture extends SimplePicture
   public static void main(String[] args) 
   {
     Picture beach = new Picture("beach.jpg");
-    beach.explore();
+    //beach.explore();
     beach.zeroBlue();
-    beach.explore();
+   // beach.explore();
   }
   
 } // this } is the end of class Picture, put all new methods before this

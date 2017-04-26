@@ -25,6 +25,30 @@ public class PictureTester
     beach.explore(); 
   }
   
+  public static void testNegate()
+  {
+	Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore(); 
+  }
+  
+  public static void testGreyscale()
+  {
+	Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.greyscale();
+    beach.explore(); 
+  }
+  
+   public static void fixUnderwater()
+  {
+	Picture water = new Picture("water.jpg");
+    water.explore(); 
+	water.fixUnderwater();
+	water.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -32,6 +56,38 @@ public class PictureTester
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+  }
+  
+  public static void testMirrorVerticalRtLC()
+  {
+    Picture moto = new Picture("redMotorcycle.jpg");
+    moto.explore();
+    moto.mirrorVerticalRtLC();
+    moto.explore();
+  }
+  
+  public static void testMirrorVerticalRtL()
+  {
+    Picture moto = new Picture("redMotorcycle.jpg");
+    moto.explore();
+    moto.mirrorVerticalRtL();
+    moto.explore();
+  }
+  
+  public static void testMirrorVerticalRtL2()
+  {
+    Picture moto = new Picture("redMotorcycle.jpg");
+    moto.explore();
+    moto.mirrorVerticalRtL2();
+    moto.explore();
+  }
+  
+  public static void testD()
+  {
+	Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.D();
+    beach.explore(); 
   }
   
   /** Method to test mirrorTemple */
@@ -66,8 +122,11 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-	testonlyBlue();
+    //testZeroBlue();
+	//testonlyBlue();
+	//testNegate();
+	//testGreyscale();
+	//fixUnderwater();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
@@ -75,7 +134,11 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
-    //testMirrorTemple();
+	//testMirrorVerticalRtL();
+	//testMirrorVerticalRtLC();
+    //testMirrorVerticalRtL2();
+	//testD();
+	testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
