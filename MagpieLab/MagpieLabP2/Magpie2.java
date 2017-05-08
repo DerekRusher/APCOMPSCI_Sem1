@@ -54,6 +54,10 @@ public class Magpie2
 		 * Create addtional code (another else if) that
 		 * responds "He sounds like a pretty dank teacher"
 		 * if you mention "Robinette" in your statement */
+		else if (findKeyword(statement, "i like you") >= 0)
+		{
+			response = "Why do you like me?";
+		}
 		else if (findKeyword(statement, "robinette", 0) >= 0)
 		{
 			response = "He sounds like a pretty dank teacher.";
