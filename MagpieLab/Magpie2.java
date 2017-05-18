@@ -58,6 +58,11 @@ public class Magpie2
 		{
 			response = "He sounds like a pretty dank teacher.";
 		}
+		
+		else if (findKeyword(statement, "i like you", 0) >= 0)
+		{
+			response = "Why do you like me?";
+		}
 
 		else
 		{
