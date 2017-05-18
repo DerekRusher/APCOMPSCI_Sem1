@@ -358,8 +358,8 @@ public class Picture extends SimplePicture
     }   
   }
   
-   public void copy(Picture fromPic, int startRow, int startCol, 
-                 int SR, int SC, int ER, int EC)
+   public void copy(Picture fromPic, int sfr, int sfc, 
+                 int efr, int efc, int str, int stc)
   {
     Pixel fromPixel = null;
     Pixel toPixel = null;
@@ -367,13 +367,13 @@ public class Picture extends SimplePicture
     Pixel[][] fromPixels = fromPic.getPixels2D();
 	
 	
-    for (int fromRow = SR, toRow = startRow; 
-         fromRow < ER &&
+    for (int fromRow = sfr, toRow = str; 
+         fromRow < efr &&
          toRow < toPixels.length; 
          fromRow++, toRow++)
     {
-      for (int fromCol = SC, toCol = startCol; 
-           fromCol < EC &&
+      for (int fromCol = sfc, toCol = stc; 
+           fromCol < efc &&
            toCol < toPixels[0].length;  
            fromCol++, toCol++)
       {
@@ -403,18 +403,28 @@ public class Picture extends SimplePicture
   
   public void specialCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0, 6, 500, 2, 500);
-    this.copy(flower2,100,0,6, 100, 2, 50);
-    this.copy(flower1,200,0,6, 100, 2, 50);
-    Picture flowerNoBlue = new Picture(flower2);
-    flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0,6, 500, 2, 500);
-    this.copy(flower1,400,0,6, 500, 2, 500);
-    this.copy(flower2,500,0,6, 500, 2, 500);
-    this.mirrorVertical();
-    this.write("collage.jpg");
+	  Picture babs = new Picture("barbaraS.jpg");
+	  this.copy(babs, 77, 53, 87, 78, 0, 0);
+    // Picture flower1 = new Picture("flower1.jpg");
+    // Picture flower2 = new Picture("flower2.jpg");
+    // this.copy(flower1, 0, 99, 0, 99, 600, 0);
+    // this.copy(flower2, 0, 99, 0, 99, 100, 0);
+    // this.copy(flower1, 0, 99, 0, 99, 200, 0);
+    // Picture flowerNoBlue = new Picture(flower2);
+    // flowerNoBlue.zeroBlue();
+    // this.copy(flowerNoBlue, 0, 99, 0, 99, 300, 0);
+    // this.copy(flower1, 0, 99, 0, 99, 400, 0);
+    // this.copy(flower2, 0, 99, 0, 99, 500, 0);
+    // this.mirrorVertical();
+     this.write("collage.jpg");
+  }
+  
+  public void myCollage()
+  {
+	  Picture rj = new Picture("RJ.jpg");
+	  Picture swan = new Picture("swan.jpg");
+	  Picture bf = new Picture("butterfly1.jpg");
+	
   }
   
   

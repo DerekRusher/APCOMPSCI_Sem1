@@ -87,7 +87,7 @@ public class PictureTester
 	Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.D();
-    beach.explore(); 
+    beach.explore();
   }
   
   /** Method to test mirrorTemple */
@@ -167,7 +167,7 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    testCollage();
+    //testCollage();
 	testSpecialCollage();
     //testCopy();
     //testEdgeDetection();
