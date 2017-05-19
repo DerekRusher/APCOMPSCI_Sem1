@@ -424,7 +424,13 @@ public class Picture extends SimplePicture
 	  Picture rj = new Picture("RJ.jpg");
 	  Picture swan = new Picture("swan.jpg");
 	  Picture bf = new Picture("butterfly1.jpg");
-	
+	  rj.zeroBlue();
+	  this.copy(rj, 40, 10, 70, 70, 0, 0);
+	  swan.onlyBlue();
+	  this.copy(swan, 69, 310, 111, 400, 250, 250);
+	  bf.greyscale();
+	  this.copy(bf, 250, 50, 300, 120, 300, 0);
+	  this.mirrorVertical();
   }
   
   

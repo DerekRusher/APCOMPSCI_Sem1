@@ -813,6 +813,14 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
 	  {
 		  pix = new Picture("RJ.jpg");
 	  }
+	  else if(test.equals("swan"))
+	  {
+		  pix = new Picture("swan.jpg");
+	  }
+	  else if(test.equals("bf") || test.equals("butterfly"))
+	  {
+		  pix = new Picture("butterfly1.jpg");
+	  }
 	  else
 	  {
 		  pix = new Picture("beach.jpg");

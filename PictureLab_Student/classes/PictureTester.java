@@ -130,6 +130,13 @@ public class PictureTester
     canvas.explore();
   }  
   
+   public static void mySpecialCollage()
+  {
+    Picture canvas = new Picture("beach.jpg");
+    canvas.myCollage();
+    canvas.explore();
+  } 
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -168,9 +175,10 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-	testSpecialCollage();
-    //testCopy();
-    //testEdgeDetection();
+	//testSpecialCollage();
+    //mySpecialCollage();
+	//testCopy();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
