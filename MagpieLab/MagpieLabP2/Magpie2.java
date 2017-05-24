@@ -62,7 +62,7 @@ public class Magpie2
 		{
 			response = "He sounds like a pretty dank teacher.";
 		}
-		else if (findKeyword(statement, "I want to", 0) >= 0)
+		else if (findKeyword(statement, "i want to", 0) >= 0)
 		{
 		  response = transformIWantToStatement(statement);
 		}
@@ -109,7 +109,7 @@ public class Magpie2
 	   * "I want to ".
 	   */
 	   
-		int psn = findKeyword(statement, "I want to");
+		int psn = findKeyword(statement, "i want to");
 		String restOfStatement = statement.substring(psn + 8);
 		return "what would it mean to" + restOfStatement;
 	   /* return "What would it mean to" + restOfStatement; **/
