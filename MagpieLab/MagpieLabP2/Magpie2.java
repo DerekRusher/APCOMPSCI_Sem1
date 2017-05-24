@@ -23,7 +23,7 @@ public class Magpie2
 			response = "Why so negative?";
 		}
 		
-		else if (statement.length() == 0)
+		else if (statement.length() == 0 || statement == " ")
 		{
 			response = "Say something, please.";
 		}
@@ -54,10 +54,6 @@ public class Magpie2
 		 * Create addtional code (another else if) that
 		 * responds "He sounds like a pretty dank teacher"
 		 * if you mention "Robinette" in your statement */
-		else if (findKeyword(statement, "i like you") >= 0)
-		{
-			response = "Why do you like me?";
-		}
 		else if (findKeyword(statement, "robinette", 0) >= 0)
 		{
 			response = "He sounds like a pretty dank teacher.";
@@ -65,6 +61,17 @@ public class Magpie2
 		else if (findKeyword(statement, "i want to", 0) >= 0)
 		{
 		  response = transformIWantToStatement(statement);
+		}
+		else if (findKeyword(statement, "i") >= 0)
+		{
+			//System.out.println("BOI1");
+			int psn1 = findKeyword(statement, "i", 0);
+			//System.out.println(psn1);
+			if (psn1 >= 0 && findKeyword(statement, "you", psn1) >= 0)
+			{
+				//System.out.println("BOI2");
+				response = transformIYouStatement(statement);
+			}
 		}
 		else
 		{
@@ -99,9 +106,11 @@ public class Magpie2
 	   *        remove the last character from statement
 	   */
 		String lastChar = statement.substring(statement.length()-1);
-		if(lastChar == ".")
+		//System.out.println("Last: \"" + lastChar + "\"");
+		if(lastChar.equals("."))
 		{
 			statement = statement.substring(0, statement.length()-1);
+			//System.out.println("Statement: " + statement);
 		}
 	   /* Set new int psn to the result from...
 	   *        findKeyword() method @param statement, goal is "I want to "
@@ -110,8 +119,8 @@ public class Magpie2
 	   */
 	   
 		int psn = findKeyword(statement, "i want to");
-		String restOfStatement = statement.substring(psn + 8);
-		return "what would it mean to" + restOfStatement;
+		String restOfStatement = statement.substring(psn + 9);
+		return "What would it mean to" + restOfStatement + "?";
 	   /* return "What would it mean to" + restOfStatement; **/
 	   
 	}
@@ -149,6 +158,37 @@ public class Magpie2
 		int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
 		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe);
 		return "What makes you think that I" + restOfStatement + "you?";
+	}
+	
+	private String transformIYouStatement(String statement)
+	{
+	  /**
+	   * trim the statement
+	   * Set new String lastChar to the last character in statement
+	   * if lastChar is a period...
+	   *        remove the period
+	   */
+	    String lastChar = statement.substring(statement.length()-1);
+		if(lastChar == ".")
+		{
+			statement = statement.substring(0, statement.length()-1);
+		}
+	   /* Set new int psnOfYou to the result of findKeyword
+	   *        @param statement and "you"
+	   * Set new int psnOfMe to the result of findKeyword
+	   *      @param statement, "me", and psnOfYou + 3
+	   * Set new String restOfStatement to the rest of statement after "You" + 3,
+	   * and before "me".
+	   *
+	   * return "What makes you think that I " + restOfStatement + "you?"
+	   * */
+	   
+		int psnOfI = findKeyword(statement, "i");
+		//System.out.println(psnOfI);
+		int psnOfU = findKeyword(statement, "you", psnOfI + 1);
+		//System.out.println(psnOfU);
+		String restOfStatement = statement.substring(psnOfI + 1, psnOfU);
+		return "Why do you" + restOfStatement + "me?";
 	}
 
 	/** Ex_02: The findKeyword() Method...
@@ -237,14 +277,16 @@ public class Magpie2
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
 		
-		if (whichResponse == 0)
-			response = "Interesting, tell me more.";
-		else if (whichResponse == 1)
-			response = "Hmmm.";
-		else if (whichResponse == 2)
-			response = "Do you really think so?";
-		else if (whichResponse == 3)
-			response = "You don't say.";
+		// if (whichResponse == 0)
+			// response = "Interesting, tell me more.";
+		// else if (whichResponse == 1)
+			// response = "Hmmm.";
+		// else if (whichResponse == 2)
+			// response = "Do you really think so?";
+		// else if (whichResponse == 3)
+			// response = "You don't say.";
+		
+		response = "YOU HAVE FAILED";
 
 		return response;
 	}
