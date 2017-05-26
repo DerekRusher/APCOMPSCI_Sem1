@@ -14,7 +14,6 @@ public class MagpieRunner2
 	public static void main(String[] args)
 	{
 		Magpie2 maggie = new Magpie2();
-		
 		System.out.println (maggie.getGreeting());
 		System.out.println (maggie.getResponse(" "));
 		System.out.println(maggie.getResponse("I know not no."));
