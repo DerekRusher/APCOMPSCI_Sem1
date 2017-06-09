@@ -19,9 +19,7 @@ public class Deck {
 	 * The next card to be dealt is at size - 1.
 	 */
 	private int size;
-	
-	public int deals;
-	
+
 
 
 	/**
@@ -35,17 +33,14 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		cards = new ArrayList<Card>();
-		for(String rank: ranks)
+		for(int i = 0; i < ranks.length; i++)
 		{
 			for(String suit: suits)
 			{
-				for(int value: values)
-				{
-					cards.add(new Card(rank, suit, value));
-					size++;
-				}
+				cards.add(new Card(ranks[i], suit, values[i]));
 			}
 		}
+		size = cards.size();
 		shuffle();
 	}
 
@@ -76,33 +71,15 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		Card Card1 = new Card("", "", 0);
-		double r;
-		for(int k = 51; k > 0; k--)
-		{
-			r = Math.random()*k;
-			Card1.set(cards[k]);
-			cards[k] = cards[r];
-			cards[r] = Card1;
-		}
-		for(int k = 51; k > 0; k--)
-		{
-			for(Card card0: cards)
-			{
-				int total = 0;
-				if(card0 > total)
-				{
-					total = card0.indexOf();
-				}
-				r = total;
-				Card1.set(card0);
-				cards[k] = cards[r];
-				cards[r] = card0;
-			}
-		}
-		size += deals;
-		deals = 0;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		Card temp = null;
+		for(int i = cards.size()-1; i >= 0; i--)
+		{
+			int r = (int)(Math.random()*i);
+			temp = cards.get(r);//temp value to swap
+			cards.set(r, cards.get(i));
+			cards.set(i, temp);
+		}
 	}
 
 	/**
@@ -112,7 +89,6 @@ public class Deck {
 	 */
 	public Card deal() {
 		return cards.get(size-1);
-		deals++;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 	}
 

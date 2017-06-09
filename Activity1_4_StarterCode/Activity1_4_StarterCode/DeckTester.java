@@ -25,5 +25,6 @@ public class DeckTester {
 		System.out.println(Deck1.size());
 		System.out.println(Deck2.size());
 		System.out.println(Deck3.size());
+		System.out.println(Deck1);
 	}
 }

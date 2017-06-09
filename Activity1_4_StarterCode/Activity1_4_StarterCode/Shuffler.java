@@ -9,6 +9,7 @@ public class Shuffler{
 	 */
 	private static final int SHUFFLE_COUNT = 1;
 
+	static int[] shuffled;
 
 	/**
 	 * Tests shuffling methods.
@@ -52,17 +53,18 @@ public class Shuffler{
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 		int k = 0;
-		for(int j = 0; j < 26; j++)
+		for(int j = 0; j < values.length/2; j++)
 		{
-			values[k] = cards[j];
+			values[k] = shuffled[j];
 			k += 2;
 		}
-		int k = 1;
-		for(j = 26; j < 52; j++)
+		k = 1;
+		for(int j = values.length/2; j < values.length; j++)
 		{
-			values[k] = cards[j];
+			values[k] = shuffled[j];
 			k +=2;
 		}
+		values = shuffled;
 	}
 
 	/**
@@ -78,28 +80,29 @@ public class Shuffler{
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		Card Card1 = new Card();
-		for(int k = 51; k > 0; k--)
-		{
-			r = Math.random(k);
-			Card1 = cards[k];
-			cards[k] = cards[r];
-			cards[r] = Card1;
-		}
-		for(k = 51; k > 0; k--)
-		{
-			for(Card card0: cards)
-			{
-				int total = 0;
-				if(card0 > total)
-				{
-					total = card0.indexOf();
-				}
-				r = total;
-				Card1 = card0;
-				cards[k] = cards[r];
-				cards[r] = card0;
-			}
-		}
+		// Card Card1 = new Card("", "", 0);
+		// for(int k = 51; k > 0; k--)
+		// {
+			// int r = (int)Math.random();
+			// r *= k;
+			// Card1 = cards[k];
+			// cards[k] = cards[r];
+			// cards[r] = Card1;
+		// }
+		// for(k = 51; k > 0; k--)
+		// {
+			// for(Card card0: cards)
+			// {
+				// int total = 0;
+				// if(card0 > total)
+				// {
+					// total = card0.indexOf();
+				// }
+				// r = total;
+				// Card1 = card0;
+				// cards[k] = cards[r];
+				// cards[r] = card0;
+			// }
+		// }
 	}
 }
