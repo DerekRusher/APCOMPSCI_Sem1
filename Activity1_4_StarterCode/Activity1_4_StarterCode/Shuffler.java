@@ -53,6 +53,8 @@ public class Shuffler{
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 		int k = 0;
+		for(int[] v: values){
+			
 		for(int j = 0; j < values.length/2; j++)
 		{
 			values[k] = shuffled[j];
