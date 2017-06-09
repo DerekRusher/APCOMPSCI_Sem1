@@ -19,6 +19,9 @@ public class Deck {
 	 * The next card to be dealt is at size - 1.
 	 */
 	private int size;
+	
+	public int deals;
+	
 
 
 	/**
@@ -73,6 +76,32 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
+		Card Card1 = new Card("", "", 0);
+		double r;
+		for(int k = 51; k > 0; k--)
+		{
+			r = Math.random()*k;
+			Card1.set(cards[k]);
+			cards[k] = cards[r];
+			cards[r] = Card1;
+		}
+		for(int k = 51; k > 0; k--)
+		{
+			for(Card card0: cards)
+			{
+				int total = 0;
+				if(card0 > total)
+				{
+					total = card0.indexOf();
+				}
+				r = total;
+				Card1.set(card0);
+				cards[k] = cards[r];
+				cards[r] = card0;
+			}
+		}
+		size += deals;
+		deals = 0;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 	}
 
@@ -83,6 +112,7 @@ public class Deck {
 	 */
 	public Card deal() {
 		return cards.get(size-1);
+		deals++;
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 	}
 
